@@ -1,0 +1,19 @@
+# Changelog
+
+All notable changes to this project will be documented in this file.
+
+---
+
+## 0.0.1-alpha
+
+Initial project foundation.
+
+### Added
+
+- initial repository structure
+- README
+- LICENSE
+- .gitignore
+- .env.example
+- VERSION file
+- CHANGELOG file

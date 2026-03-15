@@ -1,0 +1,87 @@
+{
+  "LANG": {
+    "NAME": "Français"
+  },
+  "APP": {
+    "TITLE": "GW2 API DATA PIPELINE"
+  },
+  "MENU": {
+    "MAIN": "MENU PRINCIPAL",
+    "DASHBOARD": "TABLEAU DE BORD",
+    "ACTIONS": "ACTIONS",
+    "HELP": "AIDE DU PROJET",
+    "EXIT": "QUITTER",
+    "LANGUAGE": "LANGUE"
+  },
+  "NAV": {
+    "HOME": "ACCUEIL",
+    "BACK": "RETOUR"
+  },
+  "SECTIONS": {
+    "API_CONFIG": "CONFIGURATION API",
+    "ENDPOINTS": "ENDPOINTS CONFIGURÉS",
+    "SYNC": "DERNIÈRES SYNCHRONISATIONS",
+    "DB_STATE": "ÉTAT DES BASES SQLITE",
+    "FULL_VIEW": "VUE COMPLÈTE"
+  },
+  "ACTIONS": {
+    "TEST_CONFIG": "Tester les fichiers de configuration",
+    "INIT_DB": "Initialiser une base SQLite",
+    "LAUNCH_SYNC": "Lancer le menu de synchronisation"
+  },
+  "INPUT": {
+    "PRESS_KEY": "Appuyez sur une touche pour continuer",
+    "INVALID_CHOICE": "Choix invalide.",
+    "YOUR_CHOICE": "Votre choix : "
+  },
+  "SESSION": {
+    "PROJECT": "Projet",
+    "FOLDER": "Dossier",
+    "STARTED": "Lancement",
+    "LANGUAGE": "Langue",
+    "SESSION": "Session"
+  },
+  "DASHBOARD": {
+    "DESCRIPTION": {
+      "LINE1": "- suivre la configuration API",
+      "LINE2": "- visualiser les endpoints configurés",
+      "LINE3": "- consulter les dernières synchronisations",
+      "LINE4": "- surveiller l'état des bases SQLite",
+      "LINE5": "- accéder aux utilitaires du projet"
+    },
+    "STATS": {
+      "SNAPSHOT_ENDPOINTS": "Snapshot endpoints",
+      "TIMESERIES_ENDPOINTS": "Timeseries endpoints",
+      "TOTAL_ENDPOINTS": "Total endpoints",
+      "API_STATUS": "Statut API"
+    }
+  },
+  "DATABASE": {
+    "FILE": "Fichier",
+    "MODIFIED": "Modifié",
+    "MISSING_DB": "Base absente",
+    "SIZE": "Taille",
+    "TABLES": "Tables",
+    "INDEXES": "Index",
+    "PRICES": "Prices",
+    "LINES": "lignes",
+    "STATUS": "Statut"
+  },
+  "HELP": {
+    "OBJECTIVE": "OBJECTIF",
+    "OBJECTIVE_LINES": [
+      "Récupérer les données de l'API Guild Wars 2,",
+      "les stocker dans SQLite,",
+      "conserver l'historique,",
+      "alimenter Excel / Power Query / dashboards."
+    ],
+    "PIPELINE": "PIPELINE",
+    "FINAL_TABLES": "tables métier",
+    "ENVIRONMENTS": {
+      "TITLE": "ENVIRONNEMENTS",
+      "TEST": "développement et essais",
+      "PROD": "synchronisation réelle et exploitation"
+    },
+    "TOOLS": "OUTILS"
+  }
+}
