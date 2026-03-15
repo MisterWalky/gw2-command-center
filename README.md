@@ -15,28 +15,28 @@ This repository currently represents the foundation of the project, and most fea
 
 ---
 
-# Table of Contents
+## Table of Contents
 
-- Project Status
-- Overview
-- Future Scope
-- Technologies
-- Project Architecture
-- Configuration
-- Development Environment
-- Development Notes
-- Design Principles
-- Roadmap
-- Contributing
-- License
+- [Project Status](#project-status)
+- [Overview](#overview)
+- [Future Scope](#future-scope)
+- [Technologies](#technologies)
+- [Project Architecture](#project-architecture)
+- [Configuration](#configuration)
+- [Development Environment](#development-environment)
+- [Development Notes](#development-notes)
+- [Design Principles](#design-principles)
+- [Roadmap](#roadmap)
+- [Contributing](#contributing)
+- [License](#license)
 
 ---
 
-# Project Status
+## Project Status
 
-Current version: 0.0.1-alpha
+Current version: **0.0.1-alpha**
 
-The project is currently in very early development and undergoing major architectural work.
+The project is currently in **very early development** and undergoing **major architectural work**.
 
 At this stage:
 
@@ -50,11 +50,11 @@ Because of this:
 - the project is not usable yet
 - no support will be provided for running the project in its current state
 
-The repository currently serves mainly as a development and architecture workspace.
+The repository currently serves mainly as a **development and architecture workspace**.
 
 ---
 
-# Overview
+## Overview
 
 GW2 Command Center aims to provide tools capable of analysing and exploiting Guild Wars 2 data in ways that are difficult or impossible directly in-game.
 
@@ -76,73 +76,117 @@ Some ideas are still evolving and new features may appear during development.
 
 ---
 
-# Future Scope
+## Future Scope
 
-The project may eventually include advanced tools related to Trading Post analysis and economic modelling.
+The project may eventually include advanced tools related to **Trading Post analysis and economic modelling**.
 
-However, the most advanced trading-related tools may not necessarily be released publicly.
+However, the most advanced trading-related tools may **not necessarily be released publicly**.
 
 This aspect of the project is still under consideration.
 
 ---
 
-# Technologies
+## Technologies
 
 The project currently relies on the following technologies:
 
-- Batch scripting (.bat) for orchestration and console tools
-- Python for API interaction and data processing
-- SQLite for local data storage
-- JSON for configuration and language files
-- Guild Wars 2 Official API
+- **Batch scripting (.bat)** for orchestration and console tools
+- **Python** for API interaction and data processing
+- **SQLite** for local data storage
+- **JSON** for configuration and language files
+- **Guild Wars 2 Official API**
 
 Additional technologies may be integrated later depending on the evolution of the project.
 
 ---
 
-# Project Architecture
+## Project Architecture
 
 Current repository structure:
 
+```text
 gw2-command-center
 │
-├ dashboard
-│  ├ core
-│  └ i18n
+├─ .vscode
+│  ├─ extensions.json
+│  └─ settings.json
 │
-├ scripts
-│  ├ bat
-│  └ python
+├─ config
+│  ├─ __init__.py
+│  ├─ config_base.py
+│  ├─ config_prod.py
+│  └─ config_test.py
 │
-├ modules
-├ config
-├ databases
-├ logs
-├ sql
+├─ dashboard
+│  ├─ core
+│  │  ├─ load_lang.bat
+│  │  ├─ state_views.bat
+│  │  └─ ui_helpers.bat
+│  └─ i18n
+│     └─ fr.json
 │
-├ README.md
-├ CHANGELOG
-├ VERSION
-├ LICENSE
-├ .gitignore
-├ .env.example
-└ pyproject.toml
+├─ databases
+│  ├─ .gitkeep
+│  ├─ GW2_API.db
+│  └─ GW2_TEST.db
+│
+├─ logs
+│  └─ .gitkeep
+│
+├─ modules
+│  └─ __init__.py
+│
+├─ scripts
+│  ├─ bat
+│  │  ├─ init_db.bat
+│  │  ├─ launch_sync.bat
+│  │  └─ test_config.bat
+│  └─ python
+│     ├─ __init__.py
+│     ├─ api_status.py
+│     ├─ db_status.py
+│     ├─ endpoints_status.py
+│     ├─ init_db.py
+│     ├─ run_snapshot_sync.py
+│     ├─ run_sync_menu.py
+│     ├─ sync_endpoint.py
+│     └─ sync_status.py
+│
+├─ sql
+│
+├─ .editorconfig
+├─ .env
+├─ .env.example
+├─ .gitignore
+├─ CHANGELOG
+├─ GW2_API_DASHBOARD.bat
+├─ LICENSE
+├─ pyproject.toml
+├─ README.md
+└─ VERSION
+```
+
+This architecture is **still evolving** and may change during development.
 
 ---
 
-# Configuration
+## Configuration
 
-The project uses environment variables for configuration.
+The project uses **environment variables** for configuration.
 
 Create a local configuration file by copying the example file.
 
-Windows:
+### Windows
 
+```bash
 copy .env.example .env
+```
 
-Linux / macOS:
+### Linux / macOS
 
+```bash
 cp .env.example .env
+```
 
 Then edit `.env` and insert your Guild Wars 2 API key.
 
@@ -152,20 +196,22 @@ https://account.arena.net/applications
 
 Example configuration:
 
+```env
 GW2_API_KEY=YOUR_API_KEY_HERE
 GW2_API_USER=YOUR_NAME
+```
 
-The `.env` file is ignored by Git and will never be uploaded to the repository.
+The `.env` file is **ignored by Git** and will never be uploaded to the repository.
 
 ---
 
-# Development Environment
+## Development Environment
 
 Recommended development environment:
 
-- Visual Studio Code
-- Python 3.11+
-- Git
+- **Visual Studio Code**
+- **Python 3.11+**
+- **Git**
 
 Recommended VS Code extensions:
 
@@ -175,56 +221,56 @@ Recommended VS Code extensions:
 
 ---
 
-# Development Notes
+## Development Notes
 
 During the current development phase:
 
-- source code comments are written in French
-- comments will be translated into English later before the first stable release
+- source code comments are written in **French**
+- comments will be **translated into English later**, before the first stable release
 
 This approach allows faster development while the architecture is still evolving.
 
-Console messages and critical outputs are written in English whenever possible.
+Console messages and critical outputs are written in **English whenever possible**.
 
 ---
 
-# Design Principles
+## Design Principles
 
 Several principles guide the development of this project:
 
-- modularity – components should remain independent whenever possible
-- data persistence – important data should be stored and reusable
-- reproducibility – analyses should be repeatable
-- transparency – calculations and transformations should remain understandable
-- experimentation – the project should remain a playground for exploring GW2 data
+- **modularity** — components should remain independent whenever possible
+- **data persistence** — important data should be stored and reusable
+- **reproducibility** — analyses should be repeatable
+- **transparency** — calculations and transformations should remain understandable
+- **experimentation** — the project should remain a playground for exploring GW2 data
 
 ---
 
-# Roadmap
+## Roadmap
 
 The project roadmap is indicative and may evolve during development.
 
-Phase 1 – Foundation
+### Phase 1 — Foundation
 
 - establish project architecture
 - implement language system
 - build base scripting tools
 - structure data storage
 
-Phase 2 – Data Acquisition
+### Phase 2 — Data Acquisition
 
 - Guild Wars 2 API integration
 - account data retrieval
 - inventory tracking
 - Trading Post data collection
 
-Phase 3 – Data Processing
+### Phase 3 — Data Processing
 
 - data comparison tools
 - economic analysis modules
 - profitability calculations
 
-Phase 4 – Data Exploitation
+### Phase 4 — Data Exploitation
 
 - Excel / Power Query integration
 - dashboards and reporting
@@ -232,9 +278,9 @@ Phase 4 – Data Exploitation
 
 ---
 
-# Contributing
+## Contributing
 
-Although the project is still experimental, constructive feedback is welcome.
+Although the project is still experimental, **constructive feedback is welcome**.
 
 Suggestions, ideas, technical discussions and encouragement are appreciated.
 
@@ -246,10 +292,10 @@ Please keep feedback:
 
 ---
 
-# License
+## License
 
-This project is released under the MIT License.
+This project is released under the **MIT License**.
 
 Copyright (c) 2026 William CROCHOT (MisterWalky)
 
-See the LICENSE file for details.
+See the `LICENSE` file for details.
