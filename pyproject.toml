@@ -4,4 +4,11 @@ target-version = ["py311"]
 
 [tool.ruff]
 line-length = 100
+target-version = "py311"
 select = ["E", "F", "I"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["config", "modules", "scripts"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]

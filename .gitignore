@@ -28,6 +28,9 @@ ENV/
 .env
 .env.*
 
+# Keep the example file versioned
+!.env.example
+
 # ============================================================
 # SQLite / local databases
 # ============================================================
@@ -61,12 +64,13 @@ Thumbs.db
 desktop.ini
 
 # ============================================================
-# VSCode user settings
-# Keep extensions.json but ignore personal settings
+# VS Code
+# Keep shared project settings if needed
 # ============================================================
 
 .vscode/*
 !.vscode/extensions.json
+!.vscode/settings.json
 
 # ============================================================
 # Python build artifacts
@@ -75,6 +79,7 @@ desktop.ini
 build/
 dist/
 *.egg-info/
+.eggs/
 
 # ============================================================
 # Testing / coverage
@@ -83,6 +88,8 @@ dist/
 .coverage
 htmlcov/
 .pytest_cache/
+.mypy_cache/
+.ruff_cache/
 
 # ============================================================
 # Future export folders

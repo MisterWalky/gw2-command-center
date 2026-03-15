@@ -14,10 +14,14 @@ indent_size = 4
 indent_style = space
 indent_size = 2
 
-[*.bat]
-indent_style = space
-indent_size = 4
-
 [*.sql]
 indent_style = space
 indent_size = 4
+
+[*.md]
+indent_style = space
+indent_size = 2
+
+[*.bat]
+end_of_line = crlf
+indent_style = tab

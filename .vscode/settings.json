@@ -1,0 +1,14 @@
+{
+  "editor.formatOnSave": true,
+  "editor.detectIndentation": false,
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.formatOnSave": true
+  },
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "explicit",
+    "source.fixAll": "explicit"
+  },
+  "python.analysis.typeCheckingMode": "basic",
+  "files.insertFinalNewline": true
+}
