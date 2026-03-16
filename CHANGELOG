@@ -8,14 +8,17 @@ The format is inspired by **Keep a Changelog** and this project follows semantic
 
 ## [0.0.1-alpha] - 2026-03-15
 
-Initial project foundation.
+Initial public foundation of the project.
 
 ### Added
 
 - initial repository structure
-- README
-- LICENSE
-- `.gitignore`
-- `.env.example`
-- `VERSION`
-- `CHANGELOG`
+- project documentation files (`README.md`, `LICENSE`, `CHANGELOG`, `VERSION`)
+- Git and local environment protection files (`.gitignore`, `.env.example`)
+- base folders for configuration, dashboard, modules, scripts, SQL, databases and logs
+- initial development tooling configuration (`.editorconfig`, `pyproject.toml`)
+
+### Notes
+
+- this version represents the first public alpha state of the project
+- the architecture is still under active restructuring
