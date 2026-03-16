@@ -1,0 +1,178 @@
+{
+  "LANG": {
+    "NAME": "Deutsch"
+  },
+  "COMMON": {
+    "YES": "ja",
+    "NO": "nein"
+  },
+  "APP": {
+    "TITLE": "GW2 Command Center",
+    "SUBTITLE": "Guild Wars 2 Daten- und Wirtschaftstool"
+  },
+  "MENU": {
+    "MAIN": "HAUPTMENÜ",
+    "DASHBOARD": "DASHBOARD",
+    "ACTIONS": "AKTIONEN",
+    "HELP": "PROJEKTHILFE",
+    "EXIT": "BEENDEN",
+    "LANGUAGE": "SPRACHE"
+  },
+  "NAV": {
+    "HOME": "START",
+    "BACK": "ZURÜCK"
+  },
+  "INPUT": {
+    "PRESS_KEY": "Beliebige Taste drücken, um fortzufahren",
+    "INVALID_CHOICE": "Ungültige Auswahl.",
+    "YOUR_CHOICE": "Ihre Auswahl: "
+  },
+  "SESSION": {
+    "PROJECT": "Projekt",
+    "FOLDER": "Ordner",
+    "STARTED": "Gestartet",
+    "LANGUAGE": "Sprache",
+    "SESSION": "Sitzung"
+  },
+  "SECTIONS": {
+    "API_CONFIG": "API KONFIGURATION",
+    "ENDPOINTS": "KONFIGURIERTE ENDPOINTS",
+    "SYNC": "LETZTE SYNC",
+    "DB_STATE": "SQLITE DATENBANKSTATUS",
+    "FULL_VIEW": "VOLLE ANSICHT"
+  },
+  "DASHBOARD": {
+    "DESCRIPTION": {
+      "LINE1": "- API Konfiguration überwachen",
+      "LINE2": "- konfigurierte endpoints anzeigen",
+      "LINE3": "- letzte sync prüfen",
+      "LINE4": "- SQLite Datenbankstatus überwachen",
+      "LINE5": "- Zugriff auf Projekttools"
+    },
+    "STATS": {
+      "SNAPSHOT_ENDPOINTS": "Snapshot endpoints",
+      "TIMESERIES_ENDPOINTS": "Timeseries endpoints",
+      "TOTAL_ENDPOINTS": "Gesamtzahl der endpoints"
+    }
+  },
+  "DATABASE": {
+    "FILE": "Datei",
+    "MODIFIED": "Geändert",
+    "MISSING_DB": "Fehlende Datenbank",
+    "SIZE": "Größe",
+    "TABLES": "Tabellen",
+    "INDEXES": "Indizes",
+    "PRICES": "Preise",
+    "LINES": "Zeilen",
+    "STATUS": "Status"
+  },
+  "HELP": {
+    "OBJECTIVE": "ZIEL",
+    "OBJECTIVE_LINES": [
+      "Daten aus der Guild Wars 2 API abrufen,",
+      "in SQLite speichern,",
+      "Historie behalten,",
+      "Excel / Power Query / dashboards versorgen."
+    ],
+    "PIPELINE": "PIPELINE",
+    "FINAL_TABLES": "business Tabellen",
+    "ENVIRONMENTS": {
+      "TITLE": "UMGEBUNGEN",
+      "TEST": "Entwicklung und Tests",
+      "PROD": "echte sync und Produktion"
+    },
+    "TOOLS": "TOOLS"
+  },
+  "ACTIONS": {
+    "TEST_CONFIG": "Konfigurationsdateien testen",
+    "INIT_DB": "SQLite Datenbank initialisieren",
+    "LAUNCH_SYNC": "sync Menü starten",
+    "CHECK_I18N": "Sprachdateien prüfen",
+    "SYNC_I18N": "Fehlende Sprachschlüssel synchronisieren"
+  },
+  "CHECK_I18N_UI": {
+    "TITLE": "I18N Konsistenzprüfung",
+    "REFERENCE_FILE": "Referenzdatei",
+    "TARGET_LANGS": "Zielsprachen",
+    "MODE": "Modus",
+    "PROCESSING": "Verarbeitung",
+    "LANGUAGE_FILE": "Sprachdatei",
+    "MISSING_KEYS": "Fehlende Schlüssel",
+    "EXTRA_KEYS": "Zusätzliche Schlüssel",
+    "TYPE_MISMATCHES": "Typ / Struktur Unterschiede",
+    "NONE": "Keine",
+    "UPDATED_FILE": "Datei aktualisiert",
+    "NO_CHANGE": "Keine Änderung",
+    "ADDED_KEYS": "Hinzugefügte Schlüssel",
+    "SUMMARY": "Zusammenfassung",
+    "INVALID_UI_LANG": "Nicht unterstützte UI Sprache, Englisch wird verwendet",
+    "NO_TARGET_LANGS": "Keine gültigen Zielsprachen",
+    "PARSER_DESCRIPTION": "Prüft und synchronisiert die i18n Dateien des Projekts.",
+    "HELP_MODE": "check = nur Bericht / sync = fehlende Schlüssel aus en.json hinzufügen",
+    "HELP_LANGS": "Zielsprachen. Standard: alle Anwendungssprachen außer en",
+    "HELP_UI_LANG": "Ausgabesprache des Skripts. Standard: APP_LANG oder en"
+  },
+  "CONFIG_BASE": {
+    "DIRECT_RUN_TITLE": "Basiskonfiguration geladen",
+    "PROJECT": "Projekt",
+    "VERSION": "Version",
+    "ENVIRONMENT": "Umgebung",
+    "PROJECT_DIR": "Projektverzeichnis",
+    "VERSION_FILE": "Versionsdatei",
+    "ENV_FILE": "Umgebungsdatei",
+    "API_USER": "API Benutzer",
+    "USER_AGENT": "User-Agent",
+    "API_KEY_DETECTED": "API Schlüssel erkannt",
+    "SUPPORTED_LANGS": "Unterstützte API Sprachen",
+    "SUPPORTED_APP_LANGS": "Unterstützte Anwendungssprachen",
+    "API_LANGS": "Aktive API Sprachen",
+    "PRIMARY_LANG": "Primäre API Sprache",
+    "APP_LANG": "Anwendungssprache",
+    "INVALID_APP_LANG": "Nicht unterstützte Anwendungssprache",
+    "APP_LANG_FALLBACK_USED": "Fallback Anwendungssprache verwendet",
+    "MISSING_APP_LANG_FILE": "Anwendungssprachdatei fehlt",
+    "INVALID_LANGS": "Nicht unterstützte API Sprachen ignoriert",
+    "FALLBACK_LANG_USED": "Fallback API Sprache verwendet",
+    "I18N_FALLBACK_EN_USED": "Englische Sprachdatei als Fallback verwendet",
+    "API_BASE": "API Basis",
+    "DEFAULT_DB_FILE": "Standard Datenbankdatei",
+    "TEST_DB_FILE": "Test Datenbankdatei",
+    "ENDPOINTS": "Konfigurierte endpoints",
+    "SQLITE_TECHNICAL_TABLES": "Technische SQLite Tabellen"
+  },
+  "CONFIG_PROD": {
+    "DIRECT_RUN_TITLE": "Produktionskonfiguration geladen",
+    "ENVIRONMENT": "Umgebung",
+    "PROJECT_DIR": "Projektverzeichnis",
+    "DB_PATH": "Datenbankpfad",
+    "API_USER": "API Benutzer",
+    "USER_AGENT": "User-Agent",
+    "API_KEY_DETECTED": "API Schlüssel erkannt",
+    "APP_LANG": "Anwendungssprache",
+    "API_LANGS": "API Sprachen",
+    "ENDPOINTS": "Konfigurierte endpoints",
+    "SQLITE_TECHNICAL_TABLES": "Technische SQLite Tabellen",
+    "SQLITE_BUSINESS_TABLES": "Business SQLite Tabellen"
+  },
+  "CONFIG_TEST": {
+    "DIRECT_RUN_TITLE": "Testkonfiguration geladen",
+    "ENVIRONMENT": "Umgebung",
+    "PROJECT_DIR": "Projektverzeichnis",
+    "DB_PATH": "Verwendete Datenbank",
+    "API_USER": "API Benutzer",
+    "USER_AGENT": "User-Agent",
+    "API_KEY_DETECTED": "API Schlüssel erkannt",
+    "APP_LANG": "Anwendungssprache",
+    "API_LANGS": "API Sprachen",
+    "ENDPOINTS": "Konfigurierte endpoints",
+    "TEST_IDS": "Test IDs",
+    "SQLITE_TECHNICAL_TABLES": "Technische SQLite Tabellen",
+    "SQLITE_BUSINESS_TABLES": "Business SQLite Tabellen"
+  },
+  "ERRORS": {
+    "UNKNOWN_ENDPOINT": "Unbekannter endpoint in der Konfiguration",
+    "AVAILABLE_ENDPOINTS": "Verfügbare endpoints",
+    "INVALID_ENDPOINT_CONFIG_TYPE": "Ungültiger endpoint Konfigurationstyp",
+    "INVALID_ENDPOINT_PATH": "Fehlender oder ungültiger endpoint Pfad"
+  }
+}

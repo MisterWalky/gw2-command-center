@@ -1,0 +1,178 @@
+{
+  "LANG": {
+    "NAME": "Português"
+  },
+  "COMMON": {
+    "YES": "sim",
+    "NO": "não"
+  },
+  "APP": {
+    "TITLE": "GW2 Command Center",
+    "SUBTITLE": "Ferramenta de dados e economia de Guild Wars 2"
+  },
+  "MENU": {
+    "MAIN": "MENU PRINCIPAL",
+    "DASHBOARD": "DASHBOARD",
+    "ACTIONS": "AÇÕES",
+    "HELP": "AJUDA DO PROJETO",
+    "EXIT": "SAIR",
+    "LANGUAGE": "IDIOMA"
+  },
+  "NAV": {
+    "HOME": "INÍCIO",
+    "BACK": "VOLTAR"
+  },
+  "INPUT": {
+    "PRESS_KEY": "Pressione qualquer tecla para continuar",
+    "INVALID_CHOICE": "Escolha inválida.",
+    "YOUR_CHOICE": "Sua escolha: "
+  },
+  "SESSION": {
+    "PROJECT": "Projeto",
+    "FOLDER": "Pasta",
+    "STARTED": "Iniciado",
+    "LANGUAGE": "Idioma",
+    "SESSION": "Sessão"
+  },
+  "SECTIONS": {
+    "API_CONFIG": "CONFIGURAÇÃO DA API",
+    "ENDPOINTS": "ENDPOINTS CONFIGURADOS",
+    "SYNC": "ÚLTIMOS SYNC",
+    "DB_STATE": "ESTADO DO BANCO SQLITE",
+    "FULL_VIEW": "VISÃO COMPLETA"
+  },
+  "DASHBOARD": {
+    "DESCRIPTION": {
+      "LINE1": "- monitorar a configuração da API",
+      "LINE2": "- visualizar endpoints configurados",
+      "LINE3": "- revisar os últimos sync",
+      "LINE4": "- monitorar o estado do banco SQLite",
+      "LINE5": "- acessar as ferramentas do projeto"
+    },
+    "STATS": {
+      "SNAPSHOT_ENDPOINTS": "Snapshot endpoints",
+      "TIMESERIES_ENDPOINTS": "Timeseries endpoints",
+      "TOTAL_ENDPOINTS": "Total endpoints"
+    }
+  },
+  "DATABASE": {
+    "FILE": "Arquivo",
+    "MODIFIED": "Modificado",
+    "MISSING_DB": "Banco de dados ausente",
+    "SIZE": "Tamanho",
+    "TABLES": "Tabelas",
+    "INDEXES": "Índices",
+    "PRICES": "Preços",
+    "LINES": "linhas",
+    "STATUS": "Status"
+  },
+  "HELP": {
+    "OBJECTIVE": "OBJETIVO",
+    "OBJECTIVE_LINES": [
+      "Recuperar dados da API do Guild Wars 2,",
+      "armazená-los em SQLite,",
+      "preservar o histórico,",
+      "alimentar Excel / Power Query / dashboards."
+    ],
+    "PIPELINE": "PIPELINE",
+    "FINAL_TABLES": "tabelas de negócio",
+    "ENVIRONMENTS": {
+      "TITLE": "AMBIENTES",
+      "TEST": "desenvolvimento e testes",
+      "PROD": "sync real e uso em produção"
+    },
+    "TOOLS": "FERRAMENTAS"
+  },
+  "ACTIONS": {
+    "TEST_CONFIG": "Testar arquivos de configuração",
+    "INIT_DB": "Inicializar um banco SQLite",
+    "LAUNCH_SYNC": "Abrir menu de sync",
+    "CHECK_I18N": "Verificar consistência dos arquivos de idioma",
+    "SYNC_I18N": "Sincronizar chaves de idioma ausentes"
+  },
+  "CHECK_I18N_UI": {
+    "TITLE": "Verificação de consistência i18n",
+    "REFERENCE_FILE": "Arquivo de referência",
+    "TARGET_LANGS": "Idiomas de destino",
+    "MODE": "Modo",
+    "PROCESSING": "Processando",
+    "LANGUAGE_FILE": "Arquivo de idioma",
+    "MISSING_KEYS": "Chaves ausentes",
+    "EXTRA_KEYS": "Chaves extras",
+    "TYPE_MISMATCHES": "Diferenças de tipo / estrutura",
+    "NONE": "Nenhum",
+    "UPDATED_FILE": "Arquivo atualizado",
+    "NO_CHANGE": "Nenhuma alteração",
+    "ADDED_KEYS": "Chaves adicionadas",
+    "SUMMARY": "Resumo",
+    "INVALID_UI_LANG": "Idioma de interface não suportado, usando inglês",
+    "NO_TARGET_LANGS": "Nenhum idioma válido para processar",
+    "PARSER_DESCRIPTION": "Verifica e sincroniza arquivos i18n do projeto.",
+    "HELP_MODE": "check = apenas relatório / sync = adiciona chaves ausentes de en.json",
+    "HELP_LANGS": "Idiomas a processar. Padrão: todos exceto en",
+    "HELP_UI_LANG": "Idioma usado pelo script. Padrão: APP_LANG ou en"
+  },
+  "CONFIG_BASE": {
+    "DIRECT_RUN_TITLE": "Configuração base carregada",
+    "PROJECT": "Projeto",
+    "VERSION": "Versão",
+    "ENVIRONMENT": "Ambiente",
+    "PROJECT_DIR": "Diretório do projeto",
+    "VERSION_FILE": "Arquivo de versão",
+    "ENV_FILE": "Arquivo de ambiente",
+    "API_USER": "Usuário da API",
+    "USER_AGENT": "User-Agent",
+    "API_KEY_DETECTED": "Chave API detectada",
+    "SUPPORTED_LANGS": "Idiomas API suportados",
+    "SUPPORTED_APP_LANGS": "Idiomas da aplicação suportados",
+    "API_LANGS": "Idiomas API ativos",
+    "PRIMARY_LANG": "Idioma principal da API",
+    "APP_LANG": "Idioma da aplicação",
+    "INVALID_APP_LANG": "Idioma da aplicação não suportado solicitado",
+    "APP_LANG_FALLBACK_USED": "Idioma de fallback da aplicação usado",
+    "MISSING_APP_LANG_FILE": "Arquivo de idioma da aplicação ausente",
+    "INVALID_LANGS": "Idiomas API não suportados ignorados",
+    "FALLBACK_LANG_USED": "Idioma API de fallback usado",
+    "I18N_FALLBACK_EN_USED": "Arquivo de idioma inglês usado como fallback",
+    "API_BASE": "Base da API",
+    "DEFAULT_DB_FILE": "Arquivo de banco padrão",
+    "TEST_DB_FILE": "Arquivo de banco de teste",
+    "ENDPOINTS": "Endpoints configurados",
+    "SQLITE_TECHNICAL_TABLES": "Tabelas técnicas SQLite"
+  },
+  "CONFIG_PROD": {
+    "DIRECT_RUN_TITLE": "Configuração de produção carregada",
+    "ENVIRONMENT": "Ambiente",
+    "PROJECT_DIR": "Diretório do projeto",
+    "DB_PATH": "Caminho do banco de dados",
+    "API_USER": "Usuário da API",
+    "USER_AGENT": "User-Agent",
+    "API_KEY_DETECTED": "Chave API detectada",
+    "APP_LANG": "Idioma da aplicação",
+    "API_LANGS": "Idiomas da API",
+    "ENDPOINTS": "Endpoints configurados",
+    "SQLITE_TECHNICAL_TABLES": "Tabelas técnicas SQLite",
+    "SQLITE_BUSINESS_TABLES": "Tabelas de negócio SQLite"
+  },
+  "CONFIG_TEST": {
+    "DIRECT_RUN_TITLE": "Configuração de teste carregada",
+    "ENVIRONMENT": "Ambiente",
+    "PROJECT_DIR": "Diretório do projeto",
+    "DB_PATH": "Banco de dados usado",
+    "API_USER": "Usuário da API",
+    "USER_AGENT": "User-Agent",
+    "API_KEY_DETECTED": "Chave API detectada",
+    "APP_LANG": "Idioma da aplicação",
+    "API_LANGS": "Idiomas da API",
+    "ENDPOINTS": "Endpoints configurados",
+    "TEST_IDS": "IDs de teste",
+    "SQLITE_TECHNICAL_TABLES": "Tabelas técnicas SQLite",
+    "SQLITE_BUSINESS_TABLES": "Tabelas de negócio SQLite"
+  },
+  "ERRORS": {
+    "UNKNOWN_ENDPOINT": "Endpoint desconhecido na configuração",
+    "AVAILABLE_ENDPOINTS": "Endpoints disponíveis",
+    "INVALID_ENDPOINT_CONFIG_TYPE": "Tipo de configuração de endpoint inválido",
+    "INVALID_ENDPOINT_PATH": "Caminho de endpoint ausente ou inválido"
+  }
+}

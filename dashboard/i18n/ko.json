@@ -1,0 +1,178 @@
+{
+  "LANG": {
+    "NAME": "한국어"
+  },
+  "COMMON": {
+    "YES": "예",
+    "NO": "아니요"
+  },
+  "APP": {
+    "TITLE": "GW2 Command Center",
+    "SUBTITLE": "Guild Wars 2 데이터 및 경제 도구"
+  },
+  "MENU": {
+    "MAIN": "메인 메뉴",
+    "DASHBOARD": "DASHBOARD",
+    "ACTIONS": "작업",
+    "HELP": "프로젝트 도움말",
+    "EXIT": "종료",
+    "LANGUAGE": "언어"
+  },
+  "NAV": {
+    "HOME": "홈",
+    "BACK": "뒤로"
+  },
+  "INPUT": {
+    "PRESS_KEY": "계속하려면 아무 키나 누르세요",
+    "INVALID_CHOICE": "잘못된 선택입니다.",
+    "YOUR_CHOICE": "선택: "
+  },
+  "SESSION": {
+    "PROJECT": "프로젝트",
+    "FOLDER": "폴더",
+    "STARTED": "시작됨",
+    "LANGUAGE": "언어",
+    "SESSION": "세션"
+  },
+  "SECTIONS": {
+    "API_CONFIG": "API 구성",
+    "ENDPOINTS": "CONFIGURED endpoints",
+    "SYNC": "최근 sync",
+    "DB_STATE": "SQLITE 데이터베이스 상태",
+    "FULL_VIEW": "전체 보기"
+  },
+  "DASHBOARD": {
+    "DESCRIPTION": {
+      "LINE1": "- API 구성을 모니터링",
+      "LINE2": "- 구성된 endpoints 보기",
+      "LINE3": "- 최근 sync 확인",
+      "LINE4": "- SQLite 데이터베이스 상태 모니터링",
+      "LINE5": "- 프로젝트 도구 접근"
+    },
+    "STATS": {
+      "SNAPSHOT_ENDPOINTS": "Snapshot endpoints",
+      "TIMESERIES_ENDPOINTS": "Timeseries endpoints",
+      "TOTAL_ENDPOINTS": "Total endpoints"
+    }
+  },
+  "DATABASE": {
+    "FILE": "파일",
+    "MODIFIED": "수정됨",
+    "MISSING_DB": "데이터베이스 없음",
+    "SIZE": "크기",
+    "TABLES": "테이블",
+    "INDEXES": "인덱스",
+    "PRICES": "가격",
+    "LINES": "행",
+    "STATUS": "상태"
+  },
+  "HELP": {
+    "OBJECTIVE": "목표",
+    "OBJECTIVE_LINES": [
+      "Guild Wars 2 API에서 데이터를 가져와",
+      "SQLite에 저장하고",
+      "기록을 유지하며",
+      "Excel / Power Query / dashboards에 제공합니다."
+    ],
+    "PIPELINE": "PIPELINE",
+    "FINAL_TABLES": "business 테이블",
+    "ENVIRONMENTS": {
+      "TITLE": "환경",
+      "TEST": "개발 및 테스트",
+      "PROD": "실제 sync 및 운영 사용"
+    },
+    "TOOLS": "도구"
+  },
+  "ACTIONS": {
+    "TEST_CONFIG": "구성 파일 테스트",
+    "INIT_DB": "SQLite 데이터베이스 초기화",
+    "LAUNCH_SYNC": "sync 메뉴 실행",
+    "CHECK_I18N": "언어 파일 일관성 확인",
+    "SYNC_I18N": "누락된 언어 키 동기화"
+  },
+  "CHECK_I18N_UI": {
+    "TITLE": "i18n 일관성 검사",
+    "REFERENCE_FILE": "참조 파일",
+    "TARGET_LANGS": "대상 언어",
+    "MODE": "모드",
+    "PROCESSING": "처리 중",
+    "LANGUAGE_FILE": "언어 파일",
+    "MISSING_KEYS": "누락된 키",
+    "EXTRA_KEYS": "추가된 키",
+    "TYPE_MISMATCHES": "타입 / 구조 불일치",
+    "NONE": "없음",
+    "UPDATED_FILE": "업데이트된 파일",
+    "NO_CHANGE": "변경 없음",
+    "ADDED_KEYS": "추가된 키",
+    "SUMMARY": "요약",
+    "INVALID_UI_LANG": "지원되지 않는 UI 언어입니다. 영어로 대체됩니다",
+    "NO_TARGET_LANGS": "처리할 유효한 대상 언어가 없습니다",
+    "PARSER_DESCRIPTION": "프로젝트의 i18n 파일을 확인하고 동기화합니다.",
+    "HELP_MODE": "check = 보고서만 / sync = en.json에서 누락된 키 추가",
+    "HELP_LANGS": "처리할 언어. 기본값: en을 제외한 모든 언어",
+    "HELP_UI_LANG": "스크립트 출력 언어. 기본값: APP_LANG 또는 en"
+  },
+  "CONFIG_BASE": {
+    "DIRECT_RUN_TITLE": "기본 구성이 로드되었습니다",
+    "PROJECT": "프로젝트",
+    "VERSION": "버전",
+    "ENVIRONMENT": "환경",
+    "PROJECT_DIR": "프로젝트 디렉토리",
+    "VERSION_FILE": "버전 파일",
+    "ENV_FILE": "환경 파일",
+    "API_USER": "API 사용자",
+    "USER_AGENT": "User-Agent",
+    "API_KEY_DETECTED": "API 키 감지됨",
+    "SUPPORTED_LANGS": "지원되는 API 언어",
+    "SUPPORTED_APP_LANGS": "지원되는 애플리케이션 언어",
+    "API_LANGS": "활성 API 언어",
+    "PRIMARY_LANG": "기본 API 언어",
+    "APP_LANG": "애플리케이션 언어",
+    "INVALID_APP_LANG": "지원되지 않는 애플리케이션 언어 요청됨",
+    "APP_LANG_FALLBACK_USED": "애플리케이션 언어 대체 사용",
+    "MISSING_APP_LANG_FILE": "애플리케이션 언어 파일이 없습니다",
+    "INVALID_LANGS": "지원되지 않는 API 언어가 무시되었습니다",
+    "FALLBACK_LANG_USED": "대체 API 언어 사용",
+    "I18N_FALLBACK_EN_USED": "영어 대체 언어 파일 사용",
+    "API_BASE": "API 기본 주소",
+    "DEFAULT_DB_FILE": "기본 데이터베이스 파일",
+    "TEST_DB_FILE": "테스트 데이터베이스 파일",
+    "ENDPOINTS": "Configured endpoints",
+    "SQLITE_TECHNICAL_TABLES": "SQLite 기술 테이블"
+  },
+  "CONFIG_PROD": {
+    "DIRECT_RUN_TITLE": "운영 구성이 로드되었습니다",
+    "ENVIRONMENT": "환경",
+    "PROJECT_DIR": "프로젝트 디렉토리",
+    "DB_PATH": "데이터베이스 경로",
+    "API_USER": "API 사용자",
+    "USER_AGENT": "User-Agent",
+    "API_KEY_DETECTED": "API 키 감지됨",
+    "APP_LANG": "애플리케이션 언어",
+    "API_LANGS": "API 언어",
+    "ENDPOINTS": "Configured endpoints",
+    "SQLITE_TECHNICAL_TABLES": "SQLite 기술 테이블",
+    "SQLITE_BUSINESS_TABLES": "Business SQLite 테이블"
+  },
+  "CONFIG_TEST": {
+    "DIRECT_RUN_TITLE": "테스트 구성이 로드되었습니다",
+    "ENVIRONMENT": "환경",
+    "PROJECT_DIR": "프로젝트 디렉토리",
+    "DB_PATH": "사용된 데이터베이스",
+    "API_USER": "API 사용자",
+    "USER_AGENT": "User-Agent",
+    "API_KEY_DETECTED": "API 키 감지됨",
+    "APP_LANG": "애플리케이션 언어",
+    "API_LANGS": "API 언어",
+    "ENDPOINTS": "Configured endpoints",
+    "TEST_IDS": "테스트 ID",
+    "SQLITE_TECHNICAL_TABLES": "SQLite 기술 테이블",
+    "SQLITE_BUSINESS_TABLES": "Business SQLite 테이블"
+  },
+  "ERRORS": {
+    "UNKNOWN_ENDPOINT": "구성에 알 수 없는 endpoint가 있습니다",
+    "AVAILABLE_ENDPOINTS": "사용 가능한 endpoints",
+    "INVALID_ENDPOINT_CONFIG_TYPE": "잘못된 endpoint 구성 유형",
+    "INVALID_ENDPOINT_PATH": "endpoint 경로가 없거나 잘못되었습니다"
+  }
+}

@@ -1,0 +1,178 @@
+{
+  "LANG": {
+    "NAME": "Русский"
+  },
+  "COMMON": {
+    "YES": "да",
+    "NO": "нет"
+  },
+  "APP": {
+    "TITLE": "GW2 Command Center",
+    "SUBTITLE": "Инструмент данных и экономики Guild Wars 2"
+  },
+  "MENU": {
+    "MAIN": "ГЛАВНОЕ МЕНЮ",
+    "DASHBOARD": "DASHBOARD",
+    "ACTIONS": "ДЕЙСТВИЯ",
+    "HELP": "ПОМОЩЬ ПО ПРОЕКТУ",
+    "EXIT": "ВЫХОД",
+    "LANGUAGE": "ЯЗЫК"
+  },
+  "NAV": {
+    "HOME": "ГЛАВНАЯ",
+    "BACK": "НАЗАД"
+  },
+  "INPUT": {
+    "PRESS_KEY": "Нажмите любую клавишу, чтобы продолжить",
+    "INVALID_CHOICE": "Неверный выбор.",
+    "YOUR_CHOICE": "Ваш выбор: "
+  },
+  "SESSION": {
+    "PROJECT": "Проект",
+    "FOLDER": "Папка",
+    "STARTED": "Запущено",
+    "LANGUAGE": "Язык",
+    "SESSION": "Сессия"
+  },
+  "SECTIONS": {
+    "API_CONFIG": "КОНФИГУРАЦИЯ API",
+    "ENDPOINTS": "НАСТРОЕННЫЕ ENDPOINTS",
+    "SYNC": "ПОСЛЕДНИЕ sync",
+    "DB_STATE": "СОСТОЯНИЕ БАЗЫ SQLITE",
+    "FULL_VIEW": "ПОЛНЫЙ ВИД"
+  },
+  "DASHBOARD": {
+    "DESCRIPTION": {
+      "LINE1": "- отслеживать конфигурацию API",
+      "LINE2": "- просматривать настроенные endpoints",
+      "LINE3": "- проверять последние sync",
+      "LINE4": "- отслеживать состояние базы SQLite",
+      "LINE5": "- получать доступ к инструментам проекта"
+    },
+    "STATS": {
+      "SNAPSHOT_ENDPOINTS": "Snapshot endpoints",
+      "TIMESERIES_ENDPOINTS": "Timeseries endpoints",
+      "TOTAL_ENDPOINTS": "Total endpoints"
+    }
+  },
+  "DATABASE": {
+    "FILE": "Файл",
+    "MODIFIED": "Изменено",
+    "MISSING_DB": "База данных отсутствует",
+    "SIZE": "Размер",
+    "TABLES": "Таблицы",
+    "INDEXES": "Индексы",
+    "PRICES": "Цены",
+    "LINES": "строк",
+    "STATUS": "Статус"
+  },
+  "HELP": {
+    "OBJECTIVE": "ЦЕЛЬ",
+    "OBJECTIVE_LINES": [
+      "Получать данные из API Guild Wars 2,",
+      "сохранять их в SQLite,",
+      "сохранять историю,",
+      "использовать в Excel / Power Query / dashboards."
+    ],
+    "PIPELINE": "PIPELINE",
+    "FINAL_TABLES": "business таблицы",
+    "ENVIRONMENTS": {
+      "TITLE": "СРЕДЫ",
+      "TEST": "разработка и тестирование",
+      "PROD": "реальный sync и использование в production"
+    },
+    "TOOLS": "ИНСТРУМЕНТЫ"
+  },
+  "ACTIONS": {
+    "TEST_CONFIG": "Проверить файлы конфигурации",
+    "INIT_DB": "Инициализировать базу SQLite",
+    "LAUNCH_SYNC": "Открыть меню sync",
+    "CHECK_I18N": "Проверить согласованность языковых файлов",
+    "SYNC_I18N": "Синхронизировать отсутствующие ключи языка"
+  },
+  "CHECK_I18N_UI": {
+    "TITLE": "Проверка согласованности i18n",
+    "REFERENCE_FILE": "Эталонный файл",
+    "TARGET_LANGS": "Целевые языки",
+    "MODE": "Режим",
+    "PROCESSING": "Обработка",
+    "LANGUAGE_FILE": "Языковой файл",
+    "MISSING_KEYS": "Отсутствующие ключи",
+    "EXTRA_KEYS": "Лишние ключи",
+    "TYPE_MISMATCHES": "Несоответствие типов / структуры",
+    "NONE": "Нет",
+    "UPDATED_FILE": "Файл обновлён",
+    "NO_CHANGE": "Без изменений",
+    "ADDED_KEYS": "Добавленные ключи",
+    "SUMMARY": "Итог",
+    "INVALID_UI_LANG": "Неподдерживаемый язык интерфейса, используется английский",
+    "NO_TARGET_LANGS": "Нет допустимых языков для обработки",
+    "PARSER_DESCRIPTION": "Проверяет и синхронизирует файлы i18n проекта.",
+    "HELP_MODE": "check = только отчёт / sync = добавить отсутствующие ключи из en.json",
+    "HELP_LANGS": "Языки для обработки. По умолчанию: все кроме en",
+    "HELP_UI_LANG": "Язык вывода скрипта. По умолчанию: APP_LANG или en"
+  },
+  "CONFIG_BASE": {
+    "DIRECT_RUN_TITLE": "Базовая конфигурация загружена",
+    "PROJECT": "Проект",
+    "VERSION": "Версия",
+    "ENVIRONMENT": "Среда",
+    "PROJECT_DIR": "Каталог проекта",
+    "VERSION_FILE": "Файл версии",
+    "ENV_FILE": "Файл окружения",
+    "API_USER": "Пользователь API",
+    "USER_AGENT": "User-Agent",
+    "API_KEY_DETECTED": "API ключ обнаружен",
+    "SUPPORTED_LANGS": "Поддерживаемые языки API",
+    "SUPPORTED_APP_LANGS": "Поддерживаемые языки приложения",
+    "API_LANGS": "Активные языки API",
+    "PRIMARY_LANG": "Основной язык API",
+    "APP_LANG": "Язык приложения",
+    "INVALID_APP_LANG": "Запрошен неподдерживаемый язык приложения",
+    "APP_LANG_FALLBACK_USED": "Использован резервный язык приложения",
+    "MISSING_APP_LANG_FILE": "Отсутствует файл языка приложения",
+    "INVALID_LANGS": "Неподдерживаемые языки API проигнорированы",
+    "FALLBACK_LANG_USED": "Использован резервный язык API",
+    "I18N_FALLBACK_EN_USED": "Использован английский файл языка как резервный",
+    "API_BASE": "Базовый адрес API",
+    "DEFAULT_DB_FILE": "Файл базы данных по умолчанию",
+    "TEST_DB_FILE": "Файл тестовой базы данных",
+    "ENDPOINTS": "Configured endpoints",
+    "SQLITE_TECHNICAL_TABLES": "Технические таблицы SQLite"
+  },
+  "CONFIG_PROD": {
+    "DIRECT_RUN_TITLE": "Конфигурация production загружена",
+    "ENVIRONMENT": "Среда",
+    "PROJECT_DIR": "Каталог проекта",
+    "DB_PATH": "Путь к базе данных",
+    "API_USER": "Пользователь API",
+    "USER_AGENT": "User-Agent",
+    "API_KEY_DETECTED": "API ключ обнаружен",
+    "APP_LANG": "Язык приложения",
+    "API_LANGS": "Языки API",
+    "ENDPOINTS": "Configured endpoints",
+    "SQLITE_TECHNICAL_TABLES": "Технические таблицы SQLite",
+    "SQLITE_BUSINESS_TABLES": "Business таблицы SQLite"
+  },
+  "CONFIG_TEST": {
+    "DIRECT_RUN_TITLE": "Тестовая конфигурация загружена",
+    "ENVIRONMENT": "Среда",
+    "PROJECT_DIR": "Каталог проекта",
+    "DB_PATH": "Используемая база данных",
+    "API_USER": "Пользователь API",
+    "USER_AGENT": "User-Agent",
+    "API_KEY_DETECTED": "API ключ обнаружен",
+    "APP_LANG": "Язык приложения",
+    "API_LANGS": "Языки API",
+    "ENDPOINTS": "Configured endpoints",
+    "TEST_IDS": "Тестовые ID",
+    "SQLITE_TECHNICAL_TABLES": "Технические таблицы SQLite",
+    "SQLITE_BUSINESS_TABLES": "Business таблицы SQLite"
+  },
+  "ERRORS": {
+    "UNKNOWN_ENDPOINT": "Неизвестный endpoint в конфигурации",
+    "AVAILABLE_ENDPOINTS": "Доступные endpoints",
+    "INVALID_ENDPOINT_CONFIG_TYPE": "Неверный тип конфигурации endpoint",
+    "INVALID_ENDPOINT_PATH": "Отсутствующий или неверный путь endpoint"
+  }
+}

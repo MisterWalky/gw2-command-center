@@ -1,0 +1,178 @@
+{
+  "LANG": {
+    "NAME": "Polski"
+  },
+  "COMMON": {
+    "YES": "tak",
+    "NO": "nie"
+  },
+  "APP": {
+    "TITLE": "GW2 Command Center",
+    "SUBTITLE": "Narzędzie danych i ekonomii Guild Wars 2"
+  },
+  "MENU": {
+    "MAIN": "MENU GŁÓWNE",
+    "DASHBOARD": "DASHBOARD",
+    "ACTIONS": "AKCJE",
+    "HELP": "POMOC PROJEKTU",
+    "EXIT": "WYJŚCIE",
+    "LANGUAGE": "JĘZYK"
+  },
+  "NAV": {
+    "HOME": "STRONA GŁÓWNA",
+    "BACK": "WSTECZ"
+  },
+  "INPUT": {
+    "PRESS_KEY": "Naciśnij dowolny klawisz, aby kontynuować",
+    "INVALID_CHOICE": "Nieprawidłowy wybór.",
+    "YOUR_CHOICE": "Twój wybór: "
+  },
+  "SESSION": {
+    "PROJECT": "Projekt",
+    "FOLDER": "Folder",
+    "STARTED": "Rozpoczęto",
+    "LANGUAGE": "Język",
+    "SESSION": "Sesja"
+  },
+  "SECTIONS": {
+    "API_CONFIG": "KONFIGURACJA API",
+    "ENDPOINTS": "ENDPOINTS SKONFIGUROWANE",
+    "SYNC": "OSTATNIE sync",
+    "DB_STATE": "STAN BAZY SQLITE",
+    "FULL_VIEW": "PEŁNY WIDOK"
+  },
+  "DASHBOARD": {
+    "DESCRIPTION": {
+      "LINE1": "- monitorowanie konfiguracji API",
+      "LINE2": "- wyświetlanie skonfigurowanych endpoints",
+      "LINE3": "- sprawdzanie ostatnich sync",
+      "LINE4": "- monitorowanie stanu bazy SQLite",
+      "LINE5": "- dostęp do narzędzi projektu"
+    },
+    "STATS": {
+      "SNAPSHOT_ENDPOINTS": "Snapshot endpoints",
+      "TIMESERIES_ENDPOINTS": "Timeseries endpoints",
+      "TOTAL_ENDPOINTS": "Total endpoints"
+    }
+  },
+  "DATABASE": {
+    "FILE": "Plik",
+    "MODIFIED": "Zmodyfikowano",
+    "MISSING_DB": "Brak bazy danych",
+    "SIZE": "Rozmiar",
+    "TABLES": "Tabele",
+    "INDEXES": "Indeksy",
+    "PRICES": "Ceny",
+    "LINES": "wiersze",
+    "STATUS": "Status"
+  },
+  "HELP": {
+    "OBJECTIVE": "CEL",
+    "OBJECTIVE_LINES": [
+      "Pobierać dane z API Guild Wars 2,",
+      "zapisywać je w SQLite,",
+      "zachowywać historię,",
+      "zasilać Excel / Power Query / dashboards."
+    ],
+    "PIPELINE": "PIPELINE",
+    "FINAL_TABLES": "business tabele",
+    "ENVIRONMENTS": {
+      "TITLE": "ŚRODOWISKA",
+      "TEST": "rozwój i testy",
+      "PROD": "rzeczywisty sync i użycie produkcyjne"
+    },
+    "TOOLS": "NARZĘDZIA"
+  },
+  "ACTIONS": {
+    "TEST_CONFIG": "Testuj pliki konfiguracji",
+    "INIT_DB": "Zainicjalizuj bazę SQLite",
+    "LAUNCH_SYNC": "Uruchom menu sync",
+    "CHECK_I18N": "Sprawdź spójność plików językowych",
+    "SYNC_I18N": "Synchronizuj brakujące klucze językowe"
+  },
+  "CHECK_I18N_UI": {
+    "TITLE": "Sprawdzanie spójności i18n",
+    "REFERENCE_FILE": "Plik referencyjny",
+    "TARGET_LANGS": "Języki docelowe",
+    "MODE": "Tryb",
+    "PROCESSING": "Przetwarzanie",
+    "LANGUAGE_FILE": "Plik językowy",
+    "MISSING_KEYS": "Brakujące klucze",
+    "EXTRA_KEYS": "Nadmiarowe klucze",
+    "TYPE_MISMATCHES": "Różnice typu / struktury",
+    "NONE": "Brak",
+    "UPDATED_FILE": "Zaktualizowany plik",
+    "NO_CHANGE": "Brak zmian",
+    "ADDED_KEYS": "Dodane klucze",
+    "SUMMARY": "Podsumowanie",
+    "INVALID_UI_LANG": "Nieobsługiwany język interfejsu, użyto angielskiego",
+    "NO_TARGET_LANGS": "Brak prawidłowych języków do przetworzenia",
+    "PARSER_DESCRIPTION": "Sprawdza i synchronizuje pliki i18n projektu.",
+    "HELP_MODE": "check = tylko raport / sync = dodaje brakujące klucze z en.json",
+    "HELP_LANGS": "Języki do przetworzenia. Domyślnie: wszystkie oprócz en",
+    "HELP_UI_LANG": "Język wyjścia skryptu. Domyślnie: APP_LANG lub en"
+  },
+  "CONFIG_BASE": {
+    "DIRECT_RUN_TITLE": "Załadowano konfigurację podstawową",
+    "PROJECT": "Projekt",
+    "VERSION": "Wersja",
+    "ENVIRONMENT": "Środowisko",
+    "PROJECT_DIR": "Katalog projektu",
+    "VERSION_FILE": "Plik wersji",
+    "ENV_FILE": "Plik środowiska",
+    "API_USER": "Użytkownik API",
+    "USER_AGENT": "User-Agent",
+    "API_KEY_DETECTED": "Wykryto klucz API",
+    "SUPPORTED_LANGS": "Obsługiwane języki API",
+    "SUPPORTED_APP_LANGS": "Obsługiwane języki aplikacji",
+    "API_LANGS": "Aktywne języki API",
+    "PRIMARY_LANG": "Główny język API",
+    "APP_LANG": "Język aplikacji",
+    "INVALID_APP_LANG": "Żądany język aplikacji nie jest obsługiwany",
+    "APP_LANG_FALLBACK_USED": "Użyto zapasowego języka aplikacji",
+    "MISSING_APP_LANG_FILE": "Brak pliku języka aplikacji",
+    "INVALID_LANGS": "Nieobsługiwane języki API zostały zignorowane",
+    "FALLBACK_LANG_USED": "Użyto zapasowego języka API",
+    "I18N_FALLBACK_EN_USED": "Użyto angielskiego pliku językowego jako zapasowego",
+    "API_BASE": "Adres bazowy API",
+    "DEFAULT_DB_FILE": "Domyślny plik bazy danych",
+    "TEST_DB_FILE": "Testowy plik bazy danych",
+    "ENDPOINTS": "Configured endpoints",
+    "SQLITE_TECHNICAL_TABLES": "Techniczne tabele SQLite"
+  },
+  "CONFIG_PROD": {
+    "DIRECT_RUN_TITLE": "Załadowano konfigurację produkcyjną",
+    "ENVIRONMENT": "Środowisko",
+    "PROJECT_DIR": "Katalog projektu",
+    "DB_PATH": "Ścieżka bazy danych",
+    "API_USER": "Użytkownik API",
+    "USER_AGENT": "User-Agent",
+    "API_KEY_DETECTED": "Wykryto klucz API",
+    "APP_LANG": "Język aplikacji",
+    "API_LANGS": "Języki API",
+    "ENDPOINTS": "Configured endpoints",
+    "SQLITE_TECHNICAL_TABLES": "Techniczne tabele SQLite",
+    "SQLITE_BUSINESS_TABLES": "Business tabele SQLite"
+  },
+  "CONFIG_TEST": {
+    "DIRECT_RUN_TITLE": "Załadowano konfigurację testową",
+    "ENVIRONMENT": "Środowisko",
+    "PROJECT_DIR": "Katalog projektu",
+    "DB_PATH": "Używana baza danych",
+    "API_USER": "Użytkownik API",
+    "USER_AGENT": "User-Agent",
+    "API_KEY_DETECTED": "Wykryto klucz API",
+    "APP_LANG": "Język aplikacji",
+    "API_LANGS": "Języki API",
+    "ENDPOINTS": "Configured endpoints",
+    "TEST_IDS": "Testowe ID",
+    "SQLITE_TECHNICAL_TABLES": "Techniczne tabele SQLite",
+    "SQLITE_BUSINESS_TABLES": "Business tabele SQLite"
+  },
+  "ERRORS": {
+    "UNKNOWN_ENDPOINT": "Nieznany endpoint w konfiguracji",
+    "AVAILABLE_ENDPOINTS": "Dostępne endpoints",
+    "INVALID_ENDPOINT_CONFIG_TYPE": "Nieprawidłowy typ konfiguracji endpoint",
+    "INVALID_ENDPOINT_PATH": "Brakująca lub nieprawidłowa ścieżka endpoint"
+  }
+}

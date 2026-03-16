@@ -1,0 +1,178 @@
+{
+  "LANG": {
+    "NAME": "English"
+  },
+  "COMMON": {
+    "YES": "yes",
+    "NO": "no"
+  },
+  "APP": {
+    "TITLE": "GW2 Command Center",
+    "SUBTITLE": "Guild Wars 2 Data & Economy Toolkit"
+  },
+  "MENU": {
+    "MAIN": "MAIN MENU",
+    "DASHBOARD": "DASHBOARD",
+    "ACTIONS": "ACTIONS",
+    "HELP": "PROJECT HELP",
+    "EXIT": "EXIT",
+    "LANGUAGE": "LANGUAGE"
+  },
+  "NAV": {
+    "HOME": "HOME",
+    "BACK": "BACK"
+  },
+  "INPUT": {
+    "PRESS_KEY": "Press any key to continue",
+    "INVALID_CHOICE": "Invalid choice.",
+    "YOUR_CHOICE": "Your choice: "
+  },
+  "SESSION": {
+    "PROJECT": "Project",
+    "FOLDER": "Folder",
+    "STARTED": "Started",
+    "LANGUAGE": "Language",
+    "SESSION": "Session"
+  },
+  "SECTIONS": {
+    "API_CONFIG": "API CONFIGURATION",
+    "ENDPOINTS": "CONFIGURED ENDPOINTS",
+    "SYNC": "LATEST SYNCHRONIZATIONS",
+    "DB_STATE": "SQLITE DATABASE STATE",
+    "FULL_VIEW": "FULL VIEW"
+  },
+  "DASHBOARD": {
+    "DESCRIPTION": {
+      "LINE1": "- monitor API configuration",
+      "LINE2": "- view configured endpoints",
+      "LINE3": "- review latest synchronizations",
+      "LINE4": "- monitor SQLite database state",
+      "LINE5": "- access project utilities"
+    },
+    "STATS": {
+      "SNAPSHOT_ENDPOINTS": "Snapshot endpoints",
+      "TIMESERIES_ENDPOINTS": "Timeseries endpoints",
+      "TOTAL_ENDPOINTS": "Total endpoints"
+    }
+  },
+  "DATABASE": {
+    "FILE": "File",
+    "MODIFIED": "Modified",
+    "MISSING_DB": "Missing database",
+    "SIZE": "Size",
+    "TABLES": "Tables",
+    "INDEXES": "Indexes",
+    "PRICES": "Prices",
+    "LINES": "rows",
+    "STATUS": "Status"
+  },
+  "HELP": {
+    "OBJECTIVE": "OBJECTIVE",
+    "OBJECTIVE_LINES": [
+      "Retrieve data from the Guild Wars 2 API,",
+      "store it in SQLite,",
+      "preserve history,",
+      "feed Excel / Power Query / dashboards."
+    ],
+    "PIPELINE": "PIPELINE",
+    "FINAL_TABLES": "business tables",
+    "ENVIRONMENTS": {
+      "TITLE": "ENVIRONMENTS",
+      "TEST": "development and testing",
+      "PROD": "real synchronization and production use"
+    },
+    "TOOLS": "TOOLS"
+  },
+  "ACTIONS": {
+    "TEST_CONFIG": "Test configuration files",
+    "INIT_DB": "Initialize a SQLite database",
+    "LAUNCH_SYNC": "Launch synchronization menu",
+    "CHECK_I18N": "Check language files consistency",
+    "SYNC_I18N": "Synchronize missing language keys"
+  },
+  "CHECK_I18N_UI": {
+    "TITLE": "I18N consistency check",
+    "REFERENCE_FILE": "Reference file",
+    "TARGET_LANGS": "Target languages",
+    "MODE": "Mode",
+    "PROCESSING": "Processing",
+    "LANGUAGE_FILE": "Language file",
+    "MISSING_KEYS": "Missing keys",
+    "EXTRA_KEYS": "Extra keys",
+    "TYPE_MISMATCHES": "Type / structure mismatches",
+    "NONE": "None",
+    "UPDATED_FILE": "Updated file",
+    "NO_CHANGE": "No change",
+    "ADDED_KEYS": "Added keys",
+    "SUMMARY": "Summary",
+    "INVALID_UI_LANG": "Unsupported UI language requested, fallback to English",
+    "NO_TARGET_LANGS": "No valid target languages to process",
+    "PARSER_DESCRIPTION": "Check and synchronize project i18n files.",
+    "HELP_MODE": "check = report only / sync = add missing keys from en.json",
+    "HELP_LANGS": "Target languages to process. Default: all supported app languages except en",
+    "HELP_UI_LANG": "Language used for this script output. Default: APP_LANG or en"
+  },
+  "CONFIG_BASE": {
+    "DIRECT_RUN_TITLE": "Base configuration loaded",
+    "PROJECT": "Project",
+    "VERSION": "Version",
+    "ENVIRONMENT": "Environment",
+    "PROJECT_DIR": "Project directory",
+    "VERSION_FILE": "Version file",
+    "ENV_FILE": "Environment file",
+    "API_USER": "API user",
+    "USER_AGENT": "User-Agent",
+    "API_KEY_DETECTED": "API key detected",
+    "SUPPORTED_LANGS": "Supported API languages",
+    "SUPPORTED_APP_LANGS": "Supported application languages",
+    "API_LANGS": "Active API languages",
+    "PRIMARY_LANG": "Primary API language",
+    "APP_LANG": "Application language",
+    "INVALID_APP_LANG": "Unsupported application language requested",
+    "APP_LANG_FALLBACK_USED": "Fallback application language used",
+    "MISSING_APP_LANG_FILE": "Missing application language file",
+    "INVALID_LANGS": "Unsupported API languages ignored",
+    "FALLBACK_LANG_USED": "Fallback API language used",
+    "I18N_FALLBACK_EN_USED": "English fallback language file used",
+    "API_BASE": "API base",
+    "DEFAULT_DB_FILE": "Default database file",
+    "TEST_DB_FILE": "Test database file",
+    "ENDPOINTS": "Configured endpoints",
+    "SQLITE_TECHNICAL_TABLES": "Technical SQLite tables"
+  },
+  "CONFIG_PROD": {
+    "DIRECT_RUN_TITLE": "Production configuration loaded",
+    "ENVIRONMENT": "Environment",
+    "PROJECT_DIR": "Project directory",
+    "DB_PATH": "Database path",
+    "API_USER": "API user",
+    "USER_AGENT": "User-Agent",
+    "API_KEY_DETECTED": "API key detected",
+    "APP_LANG": "Application language",
+    "API_LANGS": "API languages",
+    "ENDPOINTS": "Configured endpoints",
+    "SQLITE_TECHNICAL_TABLES": "Technical SQLite tables",
+    "SQLITE_BUSINESS_TABLES": "Business SQLite tables"
+  },
+  "CONFIG_TEST": {
+    "DIRECT_RUN_TITLE": "Test configuration loaded",
+    "ENVIRONMENT": "Environment",
+    "PROJECT_DIR": "Project directory",
+    "DB_PATH": "Database used",
+    "API_USER": "API user",
+    "USER_AGENT": "User-Agent",
+    "API_KEY_DETECTED": "API key detected",
+    "APP_LANG": "Application language",
+    "API_LANGS": "API languages",
+    "ENDPOINTS": "Configured endpoints",
+    "TEST_IDS": "Test IDs",
+    "SQLITE_TECHNICAL_TABLES": "Technical SQLite tables",
+    "SQLITE_BUSINESS_TABLES": "Business SQLite tables"
+  },
+  "ERRORS": {
+    "UNKNOWN_ENDPOINT": "Unknown endpoint in configuration",
+    "AVAILABLE_ENDPOINTS": "Available endpoints",
+    "INVALID_ENDPOINT_CONFIG_TYPE": "Invalid endpoint configuration type",
+    "INVALID_ENDPOINT_PATH": "Missing or invalid endpoint path"
+  }
+}
