@@ -198,8 +198,100 @@ Example configuration:
 
 ```env
 GW2_API_KEY=YOUR_API_KEY_HERE
-GW2_API_USER=YOUR_NAME
+GW2_API_USER=your-name
+APP_LANG=en
+GW2_API_LANGS=en
 ```
+
+---
+
+### Application language
+
+`APP_LANG` defines the language used by the application interface.
+
+This affects:
+
+- console messages
+- diagnostics
+- menus
+- internal tool outputs
+
+If the variable is **missing or invalid**, the application automatically falls back to:
+
+```
+en
+```
+
+Supported application languages:
+
+| Code | Language |
+|-----|--------|
+| en | English |
+| fr | French |
+| de | German |
+| es | Spanish |
+| it | Italian |
+| pt | Portuguese |
+| pl | Polish |
+| ru | Russian |
+| ja | Japanese |
+| ko | Korean |
+
+Example:
+
+```env
+APP_LANG=fr
+GW2_API_LANGS=fr,en
+```
+
+### Language configuration
+
+`GW2_API_LANGS` controls which languages are requested from the Guild Wars 2 API.
+
+If the variable is **missing or empty**, the default language is:
+
+```
+en
+```
+
+You can request **one or several languages**.
+
+Single language examples:
+
+```env
+GW2_API_LANGS=en
+GW2_API_LANGS=fr
+GW2_API_LANGS=de
+```
+
+Multiple languages example:
+
+```env
+GW2_API_LANGS=fr,en
+```
+
+Notes:
+
+- language order is preserved
+- duplicates should be avoided
+- values must be separated with commas
+- do not include spaces
+
+Supported API languages (ArenaNet API):
+
+| Code | Language |
+|-----|--------|
+| en | English |
+| fr | French |
+| de | German |
+| es | Spanish |
+
+Reference date: **2026-03**
+
+Official documentation:
+https://wiki.guildwars2.com/wiki/API:Main
+
+---
 
 The `.env` file is **ignored by Git** and will never be uploaded to the repository.
 
