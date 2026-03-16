@@ -1,60 +1,97 @@
-# ------------------------------------------------------------
-# config_test.py
-# ------------------------------------------------------------
-# Configuration TEST du projet GW2_API_PROJECT.
+# ============================================================
+# Projet      : GW2 Command Center
+# Fichier     : config/config_test.py
+# Rôle        : Configuration de test du projet
+# Auteur      : William CROCHOT (MisterWalky)
+# Référence   : https://github.com/MisterWalky/gw2-command-center
+# Licence     : MIT
+# ============================================================
 #
-# Ce fichier importe toute la configuration commune depuis
-# config_base.py puis remplace uniquement ce qui est utile
-# pour les tests.
+# DESCRIPTION
+# -----------
+# Ce fichier définit la configuration de test du projet.
 #
-# Avantages :
-# - fichier court
-# - facile à modifier
-# - très lisible
-# - aucun risque pour la base de production
-# ------------------------------------------------------------
+# Il importe toute la configuration commune depuis
+# config_base.py puis ne redéfinit que les paramètres utiles
+# aux essais locaux et aux validations techniques.
+#
+# Cette configuration est destinée :
+# - à la base de données de test ;
+# - aux essais sur un petit volume de données ;
+# - aux vérifications de comportement ;
+# - aux diagnostics sans risque pour la base principale.
+#
+# CONVENTION
+# ----------
+# Toute la logique commune reste dans config_base.py.
+# Ce fichier ne doit contenir que les surcharges propres à
+# l'environnement de test.
+#
+# I18N
+# ----
+# Les messages utilisateur normaux passent par tr().
+# Les messages critiques éventuels liés à l'absence des fichiers
+# de langue sont gérés par config_base.py.
+# ============================================================
 
 from config.config_base import *  # noqa: F403,F401
 
-# ------------------------------------------------------------
-# 1) ENVIRONNEMENT
-# ------------------------------------------------------------
+# ============================================================
+# ENVIRONNEMENT
+# ============================================================
+# Cette valeur permet d'identifier clairement que cette
+# configuration cible un usage de test et non la production.
+# ============================================================
 
 ENV = "TEST"
 
-
-# ------------------------------------------------------------
-# 2) BASE DE DONNÉES DE TEST
-# ------------------------------------------------------------
+# ============================================================
+# BASE DE DONNÉES DE TEST
+# ============================================================
+# La base de test doit rester séparée de la base principale
+# afin de permettre des essais sans impact sur les données
+# de production.
+# ============================================================
 
 DB_NAME = "GW2_TEST.db"
 DB_PATH = DB_DIR / DB_NAME  # noqa: F405
 
-
-# ------------------------------------------------------------
-# 3) PARAMÈTRES RÉSEAU DE TEST
-# ------------------------------------------------------------
-# En test, on travaille sur peu d'IDs et sans pause.
+# ============================================================
+# PARAMÈTRES RÉSEAU DE TEST
+# ============================================================
+# En environnement de test, on réduit volontairement la taille
+# des lots pour faciliter les vérifications, et on supprime la
+# pause entre les appels pour accélérer les essais.
+# ============================================================
 
 HTTP_TIMEOUT = 30
 BATCH_SIZE = 5
 SLEEP_SEC = 0
 
-
-# ------------------------------------------------------------
-# 4) USER-AGENT DE TEST
-# ------------------------------------------------------------
+# ============================================================
+# USER-AGENT DE TEST
+# ============================================================
+# Le User-Agent reste identifiable, mais mentionne ici le mode
+# TEST afin de distinguer plus facilement les essais de
+# l'usage standard du projet.
+# ============================================================
 
 USER_AGENT = f"{PROJECT_NAME}_TEST/{PROJECT_VERSION} ({GW2_API_USER})"  # noqa: F405
 
-REQUEST_HEADERS = {"User-Agent": USER_AGENT}
+REQUEST_HEADERS = {
+    "User-Agent": USER_AGENT,
+}
 
-
-# ------------------------------------------------------------
-# 5) PARAMÈTRES DE TEST
-# ------------------------------------------------------------
-# Permet de choisir si le script doit utiliser une liste fixe
-# d'IDs ou aller chercher les IDs via l'API.
+# ============================================================
+# PARAMÈTRES DE TEST
+# ============================================================
+# Ces options permettent de piloter des essais reproductibles.
+#
+# USE_TEST_IDS :
+# - True  -> utiliser la liste TEST_IDS définie ci-dessous
+# - False -> laisser le script récupérer les IDs selon sa
+#            logique normale
+# ============================================================
 
 USE_TEST_IDS = True
 
@@ -66,28 +103,44 @@ TEST_IDS = [
     108801,
 ]
 
-
-# ------------------------------------------------------------
-# 6) DEBUG
-# ------------------------------------------------------------
+# ============================================================
+# DEBUG
+# ============================================================
+# Le mode debug est activé en test pour faciliter l'analyse
+# des comportements et l'affichage des informations utiles.
+# ============================================================
 
 DEBUG = True
 
-
-# ------------------------------------------------------------
-# 7) AFFICHAGE SI LANCÉ DIRECTEMENT
-# ------------------------------------------------------------
+# ============================================================
+# AFFICHAGE SI LANCÉ DIRECTEMENT
+# ============================================================
+# Cet affichage sert au diagnostic rapide de la configuration
+# de test et permet de vérifier visuellement les principaux
+# paramètres actifs.
+# ============================================================
 
 if __name__ == "__main__":
-    print("Configuration TEST chargée")
-    print("Environnement :", ENV)
-    print("Projet :", PROJECT_DIR)  # noqa: F405
-    print("Base utilisée :", DB_PATH)
-    print("Utilisateur API :", GW2_API_USER)  # noqa: F405
-    print("User-Agent :", USER_AGENT)
-    print("Clé API détectée :", "oui" if GW2_API_KEY else "non")  # noqa: F405
-    print("Langues API :", API_LANGS)  # noqa: F405
-    print("Endpoints :", ENDPOINTS)  # noqa: F405
-    print("IDs de test :", TEST_IDS)
-    print("Tables techniques SQLite :", TABLES)  # noqa: F405
-    print("Tables métier SQLite :", [cfg["table"] for cfg in ENDPOINTS.values()])  # noqa: F405
+    print(tr("CONFIG_TEST.DIRECT_RUN_TITLE", "Test configuration loaded"))
+    print(f"{tr('CONFIG_TEST.ENVIRONMENT', 'Environment')} : {ENV}")
+    print(f"{tr('CONFIG_TEST.PROJECT_DIR', 'Project directory')} : {PROJECT_DIR}")  # noqa: F405
+    print(f"{tr('CONFIG_TEST.DB_PATH', 'Database used')} : {DB_PATH}")
+    print(f"{tr('CONFIG_TEST.API_USER', 'API user')} : {GW2_API_USER}")  # noqa: F405
+    print(f"{tr('CONFIG_TEST.USER_AGENT', 'User-Agent')} : {USER_AGENT}")
+    print(
+        f"{tr('CONFIG_TEST.API_KEY_DETECTED', 'API key detected')} : "
+        f"{tr('COMMON.YES', 'yes') if GW2_API_KEY else tr('COMMON.NO', 'no')}"
+    )  # noqa: F405
+    print(f"{tr('CONFIG_TEST.APP_LANG', 'Application language')} : " f"{APP_LANG}")  # noqa: F405
+    print(f"{tr('CONFIG_TEST.API_LANGS', 'API languages')} : " f"{API_LANGS}")  # noqa: F405
+    print(
+        f"{tr('CONFIG_TEST.ENDPOINTS', 'Configured endpoints')} : " f"{list(ENDPOINTS.keys())}"
+    )  # noqa: F405
+    print(f"{tr('CONFIG_TEST.TEST_IDS', 'Test IDs')} : {TEST_IDS}")
+    print(
+        f"{tr('CONFIG_TEST.SQLITE_TECHNICAL_TABLES', 'Technical SQLite tables')} : " f"{TABLES}"
+    )  # noqa: F405
+    print(
+        f"{tr('CONFIG_TEST.SQLITE_BUSINESS_TABLES', 'Business SQLite tables')} : "
+        f"{[cfg['table'] for cfg in ENDPOINTS.values() if 'table' in cfg]}"
+    )  # noqa: F405
