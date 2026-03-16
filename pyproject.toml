@@ -1,14 +1,37 @@
+# ============================================================
+# GW2 Command Center
+# pyproject.toml
+#
+# Ce fichier configure les outils de qualité du projet :
+# - black : formatage automatique du code
+# - ruff  : analyse statique et tri des imports
+# - pytest : configuration des tests
+# ============================================================
+
 [tool.black]
+# Longueur maximale des lignes de code
 line-length = 100
+
+# Version minimale de Python ciblée
 target-version = ["py311"]
 
 [tool.ruff]
+# Longueur maximale des lignes
 line-length = 100
+
+# Version Python cible
 target-version = "py311"
+
+# Règles activées :
+# E : erreurs de style
+# F : erreurs Pyflakes
+# I : organisation des imports
 select = ["E", "F", "I"]
 
 [tool.ruff.lint.isort]
-known-first-party = ["config", "modules", "scripts"]
+# Modules considérés comme appartenant au projet
+known-first-party = ["config", "dashboard", "modules", "scripts"]
 
 [tool.pytest.ini_options]
+# Permet aux tests d'importer les modules depuis la racine du projet
 pythonpath = ["."]

@@ -1,3 +1,17 @@
+# ============================================================
+# GW2 Command Center
+# .editorconfig
+#
+# Ce fichier définit les règles de formatage du projet afin
+# d'assurer un style cohérent quel que soit l'éditeur utilisé.
+#
+# Les paramètres définissent notamment :
+# - l'encodage des fichiers
+# - les fins de ligne
+# - l'indentation
+# - le nettoyage des espaces inutiles
+# ============================================================
+
 root = true
 
 [*]
@@ -25,3 +39,11 @@ indent_size = 2
 [*.bat]
 end_of_line = crlf
 indent_style = tab
+
+[*.yml]
+indent_style = space
+indent_size = 2
+
+[*.yaml]
+indent_style = space
+indent_size = 2
