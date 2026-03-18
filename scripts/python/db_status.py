@@ -1,58 +1,173 @@
-# ------------------------------------------------------------
-# db_status.py
+# ============================================================
+# Projet      : GW2 Command Center
+# Fichier     : scripts/python/db_status.py
+# Rôle        : Affichage synthétique de l'état d'une base SQLite
+# Auteur      : William CROCHOT (MisterWalky)
+# Référence   : https://github.com/MisterWalky/gw2-command-center
+# Licence     : MIT
+# ============================================================
 #
-# Affiche des informations synthétiques sur une base SQLite :
-# - taille formatée
-# - nombre de tables
-# - nombre d'index
-# - nombre de lignes dans Commerce_Prices_History
-# - nombre de lignes dans API_RAW
-# ------------------------------------------------------------
+# DESCRIPTION
+# -----------
+# Ce script affiche des informations synthétiques sur une base
+# SQLite du projet.
+#
+# Il permet notamment de récupérer :
+# - la taille formatée du fichier
+# - le nombre de tables
+# - le nombre de colonnes
+# - le nombre d'index
+# - le nombre de lignes dans COMMERCE_PRICES_HISTORY
+# - le nombre de lignes dans API_RAW
+#
+# FORMAT DE SORTIE
+# ----------------
+# La sortie est volontairement compacte afin de pouvoir être
+# réutilisée facilement dans des scripts batch ou des outils
+# de diagnostic.
+#
+# Exemple :
+# OK|size=12 345 octets (12,1 Mo)|tables=5|indexes=8|prices=1 250|raw=18 400
+# ============================================================
 
 import sqlite3
 import sys
 from pathlib import Path
 
+# ============================================================
+# CHEMINS DU PROJET
+# ============================================================
 
-def format_number(n: int) -> str:
-    """
-    Formate un entier avec séparateur de milliers = espace.
-    """
-    return f"{n:,}".replace(",", " ")
+PROJECT_DIR = Path(__file__).resolve().parents[2]
+
+if str(PROJECT_DIR) not in sys.path:
+    sys.path.insert(0, str(PROJECT_DIR))
+
+from config.config_base import APP_LANG  # noqa: E402
+
+# ============================================================
+# CONSTANTES
+# ============================================================
+
+COMMERCE_PRICES_TABLE = "COMMERCE_PRICES_HISTORY"
+API_RAW_TABLE = "API_RAW"
+
+LANGUAGE_NUMBER_FORMATS = {
+    "en": {
+        "thousands_sep": ",",
+        "decimal_sep": ".",
+        "units": {"bytes": "bytes", "kb": "KB", "mb": "MB", "gb": "GB"},
+    },
+    "fr": {
+        "thousands_sep": " ",
+        "decimal_sep": ",",
+        "units": {"bytes": "octets", "kb": "Ko", "mb": "Mo", "gb": "Go"},
+    },
+    "de": {
+        "thousands_sep": " ",
+        "decimal_sep": ",",
+        "units": {"bytes": "Bytes", "kb": "KB", "mb": "MB", "gb": "GB"},
+    },
+    "es": {
+        "thousands_sep": " ",
+        "decimal_sep": ",",
+        "units": {"bytes": "bytes", "kb": "KB", "mb": "MB", "gb": "GB"},
+    },
+    "it": {
+        "thousands_sep": " ",
+        "decimal_sep": ",",
+        "units": {"bytes": "byte", "kb": "KB", "mb": "MB", "gb": "GB"},
+    },
+    "pt": {
+        "thousands_sep": " ",
+        "decimal_sep": ",",
+        "units": {"bytes": "bytes", "kb": "KB", "mb": "MB", "gb": "GB"},
+    },
+    "pl": {
+        "thousands_sep": " ",
+        "decimal_sep": ",",
+        "units": {"bytes": "bajtów", "kb": "KB", "mb": "MB", "gb": "GB"},
+    },
+    "ru": {
+        "thousands_sep": " ",
+        "decimal_sep": ",",
+        "units": {"bytes": "байт", "kb": "КБ", "mb": "МБ", "gb": "ГБ"},
+    },
+    "ja": {
+        "thousands_sep": ",",
+        "decimal_sep": ".",
+        "units": {"bytes": "bytes", "kb": "KB", "mb": "MB", "gb": "GB"},
+    },
+    "ko": {
+        "thousands_sep": ",",
+        "decimal_sep": ".",
+        "units": {"bytes": "bytes", "kb": "KB", "mb": "MB", "gb": "GB"},
+    },
+}
+
+DEFAULT_NUMBER_FORMAT = LANGUAGE_NUMBER_FORMATS["en"]
 
 
-def format_decimal_fr(value: float) -> str:
+def get_number_format() -> dict[str, object]:
     """
-    Formate un nombre décimal avec virgule française.
-    Exemple :
-    17.6 -> '17,6'
+    Retourne la configuration de formatage correspondant
+    à la langue applicative.
     """
-    return f"{value:.1f}".replace(".", ",")
+    return LANGUAGE_NUMBER_FORMATS.get(APP_LANG, DEFAULT_NUMBER_FORMAT)
+
+
+def format_number(value: int) -> str:
+    """
+    Formate un entier avec le séparateur de milliers adapté
+    à la langue de l'application.
+    """
+    fmt = get_number_format()
+    thousands_sep = str(fmt["thousands_sep"])
+    return f"{value:,}".replace(",", thousands_sep)
+
+
+def format_decimal(value: float) -> str:
+    """
+    Formate un nombre décimal avec le séparateur décimal adapté
+    à la langue de l'application.
+    """
+    fmt = get_number_format()
+    decimal_sep = str(fmt["decimal_sep"])
+    return f"{value:.1f}".replace(".", decimal_sep)
 
 
 def format_size(size: int) -> str:
     """
-    Formate la taille avec :
-    - séparateur de milliers = espace
-    - unité lisible avec 1 décimale
+    Formate la taille d'un fichier avec :
+    - séparateur de milliers localisé
+    - séparateur décimal localisé
+    - unités adaptées à la langue de l'application
     """
+    fmt = get_number_format()
+    units = fmt["units"]
+    assert isinstance(units, dict)
+
     kb = size / 1024
     mb = kb / 1024
     gb = mb / 1024
 
     size_str = format_number(size)
+    bytes_unit = str(units["bytes"])
+    kb_unit = str(units["kb"])
+    mb_unit = str(units["mb"])
+    gb_unit = str(units["gb"])
 
     if gb >= 1:
-        return f"{size_str} octets ({format_decimal_fr(gb)} Go)"
+        return f"{size_str} {bytes_unit} ({format_decimal(gb)} {gb_unit})"
     if mb >= 1:
-        return f"{size_str} octets ({format_decimal_fr(mb)} Mo)"
+        return f"{size_str} {bytes_unit} ({format_decimal(mb)} {mb_unit})"
     if kb >= 1:
-        return f"{size_str} octets ({format_decimal_fr(kb)} Ko)"
+        return f"{size_str} {bytes_unit} ({format_decimal(kb)} {kb_unit})"
 
-    return f"{size_str} octets"
+    return f"{size_str} {bytes_unit}"
 
 
-def table_exists(cursor, table_name: str) -> bool:
+def table_exists(cursor: sqlite3.Cursor, table_name: str) -> bool:
     """
     Vérifie si une table existe dans sqlite_master.
     """
@@ -67,7 +182,20 @@ def table_exists(cursor, table_name: str) -> bool:
     return cursor.fetchone() is not None
 
 
-def main():
+def count_rows_if_exists(cursor: sqlite3.Cursor, table_name: str) -> int:
+    """
+    Retourne le nombre de lignes d'une table si elle existe,
+    sinon 0.
+    """
+    if not table_exists(cursor, table_name):
+        return 0
+
+    cursor.execute(f"SELECT COUNT(*) FROM {table_name}")
+    result = cursor.fetchone()
+    return int(result[0]) if result is not None else 0
+
+
+def main() -> None:
     """
     Point d'entrée principal.
     """
@@ -85,41 +213,31 @@ def main():
         size = db_path.stat().st_size
         size_fmt = format_size(size)
 
-        conn = sqlite3.connect(db_path)
-        cur = conn.cursor()
+        with sqlite3.connect(db_path) as conn:
+            cur = conn.cursor()
 
-        cur.execute(
-            """
-            SELECT COUNT(*)
-            FROM sqlite_master
-            WHERE type = 'table'
-              AND name NOT LIKE 'sqlite_%'
-            """
-        )
-        table_count = cur.fetchone()[0]
+            cur.execute(
+                """
+                SELECT COUNT(*)
+                FROM sqlite_master
+                WHERE type = 'table'
+                  AND name NOT LIKE 'sqlite_%'
+                """
+            )
+            table_count = int(cur.fetchone()[0])
 
-        cur.execute(
-            """
-            SELECT COUNT(*)
-            FROM sqlite_master
-            WHERE type = 'index'
-              AND name NOT LIKE 'sqlite_%'
-            """
-        )
-        index_count = cur.fetchone()[0]
+            cur.execute(
+                """
+                SELECT COUNT(*)
+                FROM sqlite_master
+                WHERE type = 'index'
+                  AND name NOT LIKE 'sqlite_%'
+                """
+            )
+            index_count = int(cur.fetchone()[0])
 
-        prices_rows = 0
-        raw_rows = 0
-
-        if table_exists(cur, "Commerce_Prices_History"):
-            cur.execute("SELECT COUNT(*) FROM Commerce_Prices_History")
-            prices_rows = cur.fetchone()[0]
-
-        if table_exists(cur, "API_RAW"):
-            cur.execute("SELECT COUNT(*) FROM API_RAW")
-            raw_rows = cur.fetchone()[0]
-
-        conn.close()
+            prices_rows = count_rows_if_exists(cur, COMMERCE_PRICES_TABLE)
+            raw_rows = count_rows_if_exists(cur, API_RAW_TABLE)
 
         print(
             "OK"
@@ -130,8 +248,14 @@ def main():
             f"|raw={format_number(raw_rows)}"
         )
 
+    except sqlite3.Error as exc:
+        print(f"ERROR|sqlite_error={exc}")
+        sys.exit(1)
+    except OSError as exc:
+        print(f"ERROR|os_error={exc}")
+        sys.exit(1)
     except Exception as exc:
-        print(f"ERROR|{exc}")
+        print(f"ERROR|unexpected_error={exc}")
         sys.exit(1)
 
 

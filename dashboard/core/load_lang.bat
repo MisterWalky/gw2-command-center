@@ -2,15 +2,17 @@
 :: ============================================================
 :: Projet      : GW2 Command Center
 :: Fichier     : dashboard\core\load_lang.bat
-:: Role        : Noyau central de gestion multilingue
+:: Rôle        : Noyau central de gestion multilingue
 :: Auteur      : William CROCHOT (MisterWalky)
-:: Reference   : https://github.com/MisterWalky/gw2-command-center
+:: Référence   : https://github.com/MisterWalky/gw2-command-center
 :: Licence     : MIT
 :: ============================================================
 ::
+:: ------------------------------------------------------------
 :: DESCRIPTION
-:: -----------
-:: Ce script centralise le chargement des fichiers de langue JSON.
+:: ------------------------------------------------------------
+:: Ce script centralise le chargement et la lecture des fichiers
+:: de langue JSON utilises par le dashboard.
 ::
 :: Il permet de :
 :: - initialiser la langue active
@@ -20,50 +22,27 @@
 :: - afficher directement une valeur
 :: - tester l'existence d'une cle
 ::
-:: CONVENTIONS RETENUES
-:: --------------------
-:: - Les commentaires du code restent en francais pendant le
+:: Conventions retenues :
+:: - Les commentaires restent en francais pendant le
 ::   developpement local.
 :: - Les messages systeme critiques affiches dans la console
 ::   restent en anglais.
-:: - Les fichiers de langue sont en JSON et utilisent une
-::   structure hierarchique.
+:: - Les fichiers de langue utilisent une structure JSON
+::   hierarchique.
 :: - Les cles sont appelees sous forme de chemin :
 ::     MENU.MAIN
 ::     INPUT.YOUR_CHOICE
 ::     HELP.OBJECTIVE_LINES.0
 ::
-:: STRATEGIE DE RESOLUTION DES LANGUES
-:: ----------------------------------
-:: 1. Tenter la langue demandee
-:: 2. Sinon basculer sur l'anglais (en.json)
-:: 3. Sinon arreter l'application avec une erreur critique
+:: Strategie de resolution des langues :
+:: 1. tenter la langue demandee
+:: 2. sinon basculer sur l'anglais (en.json)
+:: 3. sinon arreter l'application avec une erreur critique
 ::
-:: EXEMPLES D'UTILISATION
-:: ----------------------
-::   call "dashboard\core\load_lang.bat" init fr
-::
-::   call "dashboard\core\load_lang.bat" get MENU.MAIN LABEL_MAIN
-::   echo %LABEL_MAIN%
-::
-::   call "dashboard\core\load_lang.bat" echo MENU.MAIN
-::
-::   call "dashboard\core\load_lang.bat" exists MENU.MAIN KEY_FOUND
-::   if "%KEY_FOUND%"=="1" echo Key found
-::
-:: DEPENDANCES
-:: -----------
-:: - PowerShell est utilise pour lire les fichiers JSON.
-::
-:: VARIABLES EXPOSEES
-:: ------------------
-:: - I18N_LANG  : code langue actif
-:: - I18N_FILE  : chemin absolu du fichier JSON charge
-::
-:: REMARQUE
-:: --------
-:: Ce script est concu pour etre appele avec "call".
-:: ============================================================
+:: Remarque :
+:: - Ce script est concu pour etre appele avec "call".
+:: - Les valeurs lues sont supposees etre mono-ligne.
+:: ------------------------------------------------------------
 
 goto :MAIN
 
@@ -84,20 +63,6 @@ goto :CMD_HELP
 :: ------------------------------------------------------------
 :: COMMANDE : INIT
 :: ------------------------------------------------------------
-:: Initialise le systeme de langue.
-::
-:: Usage :
-::   call load_lang.bat init fr
-::
-:: Resultat :
-::   - I18N_LANG est defini
-::   - I18N_FILE est defini
-::
-:: Comportement :
-::   - si la langue demandee existe, elle est chargee
-::   - sinon fallback automatique vers en.json
-::   - si en.json n'existe pas non plus, erreur critique
-:: ------------------------------------------------------------
 
 :CMD_INIT
 set "REQUESTED_LANG=%~2"
@@ -111,12 +76,6 @@ exit /b 0
 
 :: ------------------------------------------------------------
 :: COMMANDE : GET
-:: ------------------------------------------------------------
-:: Lit une cle de langue et la stocke dans une variable.
-::
-:: Usage :
-::   call load_lang.bat get MENU.MAIN LABEL_MAIN
-::   echo %LABEL_MAIN%
 :: ------------------------------------------------------------
 
 :CMD_GET
@@ -148,11 +107,6 @@ exit /b 0
 :: ------------------------------------------------------------
 :: COMMANDE : ECHO
 :: ------------------------------------------------------------
-:: Lit une cle de langue et l'affiche directement.
-::
-:: Usage :
-::   call load_lang.bat echo MENU.MAIN
-:: ------------------------------------------------------------
 
 :CMD_ECHO
 set "KEY_PATH=%~2"
@@ -171,22 +125,14 @@ if errorlevel 1 (
     exit /b 1
 )
 
-echo %__I18N_ECHO_VALUE__%
+powershell -NoProfile -ExecutionPolicy Bypass ^
+    "[Console]::OutputEncoding = [System.Text.Encoding]::UTF8; Write-Output $env:__I18N_ECHO_VALUE__"
 set "__I18N_ECHO_VALUE__="
 exit /b 0
 
 
 :: ------------------------------------------------------------
 :: COMMANDE : EXISTS
-:: ------------------------------------------------------------
-:: Teste l'existence d'une cle dans le fichier de langue actif.
-::
-:: Usage :
-::   call load_lang.bat exists MENU.MAIN KEY_FOUND
-::
-:: Resultat :
-::   KEY_FOUND=1 si la cle existe
-::   KEY_FOUND=0 sinon
 :: ------------------------------------------------------------
 
 :CMD_EXISTS
@@ -256,11 +202,6 @@ exit /b 0
 :: ------------------------------------------------------------
 :: RESOLUTION DU FICHIER DE LANGUE
 :: ------------------------------------------------------------
-:: Cette routine applique la logique de fallback :
-:: - langue demandee
-:: - anglais
-:: - erreur critique si rien n'existe
-:: ------------------------------------------------------------
 
 :RESOLVE_LANGUAGE_FILE
 set "REQUESTED_LANG=%~1"
@@ -308,10 +249,6 @@ exit /b 1
 :: ------------------------------------------------------------
 :: VERIFICATION DE L'INITIALISATION
 :: ------------------------------------------------------------
-:: Garantit qu'une langue active et un fichier valide existent.
-:: Si rien n'est initialise, tente un chargement implicite en
-:: anglais.
-:: ------------------------------------------------------------
 
 :ENSURE_LANGUAGE_READY
 if defined I18N_FILE (
@@ -338,19 +275,6 @@ exit /b 0
 
 :: ------------------------------------------------------------
 :: LECTURE D'UNE CLE JSON
-:: ------------------------------------------------------------
-:: Lit une cle hierarchique dans un fichier JSON et retourne la
-:: valeur dans la variable passee en 3e argument.
-::
-:: Exemple :
-::   call :READ_JSON_KEY "...\fr.json" "MENU.MAIN" RESULT
-::
-:: Particularites :
-:: - gere les objets imbriques
-:: - gere les index de tableaux
-:: - ex : HELP.OBJECTIVE_LINES.0
-:: - preserve mieux les caracteres speciaux via un fichier
-::   temporaire intermediaire
 :: ------------------------------------------------------------
 
 :READ_JSON_KEY
@@ -397,10 +321,15 @@ if not exist "%TMP_OUTPUT%" (
     endlocal & exit /b 1
 )
 
+set "READ_VALUE="
 for /f "usebackq delims=" %%A in ("%TMP_OUTPUT%") do (
-    del /q "%TMP_OUTPUT%" >nul 2>&1
-    endlocal & set "%RETURN_VAR%=%%A" & exit /b 0
+    if not defined READ_VALUE set "READ_VALUE=%%A"
 )
 
 del /q "%TMP_OUTPUT%" >nul 2>&1
-endlocal & exit /b 1
+
+if not defined READ_VALUE (
+    endlocal & exit /b 1
+)
+
+endlocal & set "%RETURN_VAR%=%READ_VALUE%" & exit /b 0

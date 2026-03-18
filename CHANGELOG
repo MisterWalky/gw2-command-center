@@ -6,13 +6,35 @@ The format is inspired by **Keep a Changelog** and this project follows semantic
 
 ---
 
+## [0.0.2-alpha] - 2026-03-18
+
+### Added
+- Added initial batch localization support for dashboard-related launchers
+- Added new UI namespaces for localized batch menus
+- Added multilingual coverage for all supported application languages
+
+### Changed
+- Standardized project file headers and internal comments
+- Consolidated project architecture and runtime folder conventions
+- Refactored core Python scripts related to database setup, synchronization, status, and i18n checks
+- Improved dashboard localization flow with centralized language loading
+- Updated batch launchers to align with project structure and i18n rules
+- Expanded and synchronized application language files across all supported locales
+
+### Notes
+- The project remains in early alpha
+- English remains the source of truth for i18n
+- Fallback to English is preserved for incomplete or technical cases
+
+---
+
 ## [0.0.1-alpha] - 2026-03-15
 
 Initial public foundation of the project.
 
 ### Added
 
-- initial repository structure
+- Added initial repository structure
 - project documentation files (`README.md`, `LICENSE`, `CHANGELOG`, `VERSION`)
 - Git and local environment protection files (`.gitignore`, `.env.example`)
 - base folders for configuration, dashboard, modules, scripts, SQL, databases and logs

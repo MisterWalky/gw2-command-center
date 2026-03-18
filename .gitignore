@@ -1,8 +1,26 @@
 # ============================================================
-# GW2 Command Center
-# .gitignore
-# Ignore files that must not be versioned
+# Projet      : GW2 Command Center
+# Fichier     : .gitignore
+# Rôle        : Fichiers et dossiers exclus du versioning
+# Auteur      : William CROCHOT (MisterWalky)
+# Référence   : https://github.com/MisterWalky/gw2-command-center
+# Licence     : MIT
 # ============================================================
+
+# ------------------------------------------------------------
+# DESCRIPTION
+# ------------------------------------------------------------
+# Ce fichier définit les fichiers et dossiers qui ne doivent
+# pas être suivis par Git.
+#
+# Il permet notamment d'exclure :
+# - les fichiers temporaires
+# - les environnements locaux
+# - les bases de données
+# - les fichiers sensibles (.env)
+# ------------------------------------------------------------
+
+
 
 # ============================================================
 # Python cache / compiled files
@@ -43,6 +61,15 @@ ENV/
 databases/*.db
 databases/*.sqlite
 databases/*.sqlite3
+databases/*.db-journal
+databases/*.sqlite-journal
+databases/*.sqlite3-journal
+databases/*.db-wal
+databases/*.sqlite-wal
+databases/*.sqlite3-wal
+databases/*.db-shm
+databases/*.sqlite-shm
+databases/*.sqlite3-shm
 
 # ============================================================
 # Logs

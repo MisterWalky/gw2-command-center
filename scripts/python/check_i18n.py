@@ -103,8 +103,12 @@ UI_DEFAULTS = {
     "NO_CHANGE": "No change",
     "ADDED_KEYS": "Added keys",
     "SUMMARY": "Summary",
+    "FILES_PROCESSED": "Files processed",
+    "FILES_UPDATED": "Files updated",
     "INVALID_UI_LANG": "Unsupported UI language requested, fallback to English",
     "NO_TARGET_LANGS": "No valid target languages to process",
+    "MISSING_TARGET_FILE": "Missing target file",
+    "TARGET_FILE_CREATED": "Target file created",
     "PARSER_DESCRIPTION": "Check and synchronize project i18n files.",
     "HELP_MODE": "check = report only / sync = add missing keys from en.json",
     "HELP_LANGS": "Target languages to process. Default: all supported app languages except en",
@@ -156,16 +160,18 @@ def flatten_dict(data: dict[str, Any], prefix: str = "") -> dict[str, Any]:
     """
     Transforme un dictionnaire imbriqué en dictionnaire plat
     avec chemins séparés par des points.
+
+    Les nœuds dictionnaires sont eux aussi conservés afin de
+    mieux détecter les écarts de structure.
     """
     flat: dict[str, Any] = {}
 
     for key, value in data.items():
         path = f"{prefix}.{key}" if prefix else key
+        flat[path] = value
 
         if isinstance(value, dict):
             flat.update(flatten_dict(value, path))
-        else:
-            flat[path] = value
 
     return flat
 
@@ -329,6 +335,38 @@ def print_items(title: str, items: list[str], none_label: str) -> None:
 
 
 # ============================================================
+# NORMALISATION DES LANGUES CIBLES
+# ============================================================
+
+
+def normalize_target_langs(raw_langs: list[str]) -> list[str]:
+    """
+    Normalise la liste des langues cibles :
+    - suppression des espaces
+    - mise en minuscules
+    - suppression des doublons
+    - filtrage selon les langues supportées
+    - conservation de l'ordre
+    """
+    normalized: list[str] = []
+    seen: set[str] = set()
+
+    for lang in raw_langs:
+        value = lang.strip().lower()
+
+        if not value or value not in SUPPORTED_TARGET_LANGS:
+            continue
+
+        if value in seen:
+            continue
+
+        seen.add(value)
+        normalized.append(value)
+
+    return normalized
+
+
+# ============================================================
 # COMPARAISON
 # ============================================================
 
@@ -410,12 +448,31 @@ def process_language(
     target_lang: str,
     reference_data: dict[str, Any],
     mode: str,
-) -> None:
+) -> bool:
     """
     Vérifie et, si demandé, synchronise une langue cible.
+
+    Retourne True si le fichier a été modifié, sinon False.
     """
     target_file = I18N_DIR / f"{target_lang}.json"
-    target_data = load_json_file(target_file)
+    file_updated = False
+
+    if target_file.exists():
+        target_data = load_json_file(target_file)
+    else:
+        print(
+            f"\n{ui(ui_strings, 'MISSING_TARGET_FILE', 'Missing target file')} : "
+            f"{target_file.name}"
+        )
+
+        if mode == "check":
+            target_data = {}
+        else:
+            target_data = {}
+            print(
+                f"{ui(ui_strings, 'TARGET_FILE_CREATED', 'Target file created')} : "
+                f"{target_file.name}"
+            )
 
     report_before = compare_language(reference_data, target_data)
 
@@ -437,12 +494,13 @@ def process_language(
     )
 
     if mode == "check":
-        return
+        return False
 
     updated_data, added_keys = sync_missing_keys(reference_data, target_data)
 
     if added_keys:
         save_json_file(target_file, updated_data)
+        file_updated = True
         print(f"\n{ui(ui_strings, 'UPDATED_FILE', 'Updated file')} : {target_file.name}")
         print_items(
             ui(ui_strings, "ADDED_KEYS", "Added keys"),
@@ -451,6 +509,8 @@ def process_language(
         )
     else:
         print(f"\n{ui(ui_strings, 'NO_CHANGE', 'No change')} : {target_file.name}")
+
+    return file_updated
 
 
 # ============================================================
@@ -563,7 +623,7 @@ def main() -> None:
             + f" : {requested_ui_lang}"
         )
 
-    target_langs = [lang for lang in args.langs if lang in SUPPORTED_TARGET_LANGS]
+    target_langs = normalize_target_langs(args.langs)
 
     if not target_langs:
         print(ui(ui_strings, "NO_TARGET_LANGS", "No valid target languages to process"))
@@ -576,16 +636,24 @@ def main() -> None:
     print(f"{ui(ui_strings, 'TARGET_LANGS', 'Target languages')} : {', '.join(target_langs)}")
     print(f"{ui(ui_strings, 'MODE', 'Mode')} : {args.mode}")
 
+    files_processed = 0
+    files_updated = 0
+
     for target_lang in target_langs:
         print(f"\n{ui(ui_strings, 'PROCESSING', 'Processing')} : {target_lang}")
-        process_language(
+        was_updated = process_language(
             ui_strings=ui_strings,
             target_lang=target_lang,
             reference_data=reference_data,
             mode=args.mode,
         )
+        files_processed += 1
+        if was_updated:
+            files_updated += 1
 
     print_section(ui(ui_strings, "SUMMARY", "Summary"))
+    print(f"{ui(ui_strings, 'FILES_PROCESSED', 'Files processed')} : {files_processed}")
+    print(f"{ui(ui_strings, 'FILES_UPDATED', 'Files updated')} : {files_updated}")
 
 
 if __name__ == "__main__":

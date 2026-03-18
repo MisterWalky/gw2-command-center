@@ -11,9 +11,9 @@
 # -----------
 # Ce fichier définit la configuration de test du projet.
 #
-# Il importe toute la configuration commune depuis
-# config_base.py puis ne redéfinit que les paramètres utiles
-# aux essais locaux et aux validations techniques.
+# Il importe la configuration commune depuis config_base.py
+# puis ne redéfinit que les paramètres utiles aux essais
+# locaux et aux validations techniques.
 #
 # Cette configuration est destinée :
 # - à la base de données de test ;
@@ -34,7 +34,20 @@
 # de langue sont gérés par config_base.py.
 # ============================================================
 
-from config.config_base import *  # noqa: F403,F401
+from config.config_base import (
+    API_LANGS,
+    APP_LANG,
+    ENDPOINTS,
+    GW2_API_KEY,
+    GW2_API_USER,
+    PROJECT_DIR,
+    PROJECT_SLUG,
+    PROJECT_VERSION,
+    TABLES,
+    TEST_DB_FILE,
+    print_i18n_warnings,
+    tr,
+)
 
 # ============================================================
 # ENVIRONNEMENT
@@ -53,8 +66,8 @@ ENV = "TEST"
 # de production.
 # ============================================================
 
-DB_NAME = "GW2_TEST.db"
-DB_PATH = DB_DIR / DB_NAME  # noqa: F405
+DB_PATH = TEST_DB_FILE
+DB_NAME = DB_PATH.name
 
 # ============================================================
 # PARAMÈTRES RÉSEAU DE TEST
@@ -66,7 +79,7 @@ DB_PATH = DB_DIR / DB_NAME  # noqa: F405
 
 HTTP_TIMEOUT = 30
 BATCH_SIZE = 5
-SLEEP_SEC = 0
+SLEEP_SEC = 0.0
 
 # ============================================================
 # USER-AGENT DE TEST
@@ -76,7 +89,7 @@ SLEEP_SEC = 0
 # l'usage standard du projet.
 # ============================================================
 
-USER_AGENT = f"{PROJECT_NAME}_TEST/{PROJECT_VERSION} ({GW2_API_USER})"  # noqa: F405
+USER_AGENT = f"{PROJECT_SLUG}-test/{PROJECT_VERSION} ({GW2_API_USER})"
 
 REQUEST_HEADERS = {
     "User-Agent": USER_AGENT,
@@ -123,24 +136,22 @@ DEBUG = True
 if __name__ == "__main__":
     print(tr("CONFIG_TEST.DIRECT_RUN_TITLE", "Test configuration loaded"))
     print(f"{tr('CONFIG_TEST.ENVIRONMENT', 'Environment')} : {ENV}")
-    print(f"{tr('CONFIG_TEST.PROJECT_DIR', 'Project directory')} : {PROJECT_DIR}")  # noqa: F405
+    print(f"{tr('CONFIG_TEST.PROJECT_DIR', 'Project directory')} : {PROJECT_DIR}")
     print(f"{tr('CONFIG_TEST.DB_PATH', 'Database used')} : {DB_PATH}")
-    print(f"{tr('CONFIG_TEST.API_USER', 'API user')} : {GW2_API_USER}")  # noqa: F405
+    print(f"{tr('CONFIG_TEST.API_USER', 'API user')} : {GW2_API_USER}")
     print(f"{tr('CONFIG_TEST.USER_AGENT', 'User-Agent')} : {USER_AGENT}")
     print(
         f"{tr('CONFIG_TEST.API_KEY_DETECTED', 'API key detected')} : "
         f"{tr('COMMON.YES', 'yes') if GW2_API_KEY else tr('COMMON.NO', 'no')}"
-    )  # noqa: F405
-    print(f"{tr('CONFIG_TEST.APP_LANG', 'Application language')} : " f"{APP_LANG}")  # noqa: F405
-    print(f"{tr('CONFIG_TEST.API_LANGS', 'API languages')} : " f"{API_LANGS}")  # noqa: F405
-    print(
-        f"{tr('CONFIG_TEST.ENDPOINTS', 'Configured endpoints')} : " f"{list(ENDPOINTS.keys())}"
-    )  # noqa: F405
+    )
+    print(f"{tr('CONFIG_TEST.APP_LANG', 'Application language')} : {APP_LANG}")
+    print(f"{tr('CONFIG_TEST.API_LANGS', 'API languages')} : {API_LANGS}")
+    print(f"{tr('CONFIG_TEST.ENDPOINTS', 'Configured endpoints')} : {list(ENDPOINTS.keys())}")
     print(f"{tr('CONFIG_TEST.TEST_IDS', 'Test IDs')} : {TEST_IDS}")
-    print(
-        f"{tr('CONFIG_TEST.SQLITE_TECHNICAL_TABLES', 'Technical SQLite tables')} : " f"{TABLES}"
-    )  # noqa: F405
+    print(f"{tr('CONFIG_TEST.SQLITE_TECHNICAL_TABLES', 'Technical SQLite tables')} : {TABLES}")
     print(
         f"{tr('CONFIG_TEST.SQLITE_BUSINESS_TABLES', 'Business SQLite tables')} : "
         f"{[cfg['table'] for cfg in ENDPOINTS.values() if 'table' in cfg]}"
-    )  # noqa: F405
+    )
+
+    print_i18n_warnings()
