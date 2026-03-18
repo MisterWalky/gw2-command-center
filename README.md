@@ -1,11 +1,23 @@
-# GW2 Command Center
+<p align="center">
+  <img src="assets/images/gw2cc-banner-original.png" width="700">
+</p>
 
-![Status](https://img.shields.io/badge/status-alpha-orange)
-![Version](https://img.shields.io/badge/version-0.0.2--alpha-blue)
-![License](https://img.shields.io/badge/license-MIT-green)
-![Python](https://img.shields.io/badge/python-3.11-blue)
-![Platform](https://img.shields.io/badge/platform-Windows-lightgrey)
-![GitHub last commit](https://img.shields.io/github/last-commit/MisterWalky/gw2-command-center)
+<p align="center">
+  <img src="assets/images/gw2cc-logo.png" width="160">
+</p>
+
+<h1 align="center">GW2 Command Center</h1>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/status-alpha-orange">
+  <img src="https://img.shields.io/badge/version-0.0.2--alpha-blue">
+  <img src="https://img.shields.io/badge/license-MIT-green">
+  <img src="https://img.shields.io/badge/python-3.11-blue">
+  <img src="https://img.shields.io/badge/platform-Windows-lightgrey">
+  <img src="https://img.shields.io/github/last-commit/MisterWalky/gw2-command-center">
+</p>
+
+---
 
 GW2 Command Center is a personal project focused on building a structured analysis environment around the official Guild Wars 2 API.
 
@@ -54,7 +66,7 @@ The architecture is being built progressively so the project can scale cleanly a
 
 ## Current Status
 
-Current version: **0.0.1-alpha**
+Current version: **0.0.2-alpha**
 
 This repository is currently in **early active development**.
 
