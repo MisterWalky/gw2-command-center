@@ -262,6 +262,8 @@ Current repository structure:
 
 ```text
 gw2-command-center/
+├─ assets/
+│  └─ images/
 ├─ config/
 ├─ dashboard/
 ├─ databases/
